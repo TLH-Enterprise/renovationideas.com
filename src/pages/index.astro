@@ -1,0 +1,642 @@
+---
+const whatsappNumber = "1234567890"; // Reemplaza con tu número de WhatsApp
+const whatsappMessage =
+  "Hola, me interesa conocer más sobre sus servicios de renovación.";
+const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Renovation Ideas - Servicios profesionales de renovación de casas"
+    />
+    <meta name="generator" content={Astro.generator} />
+    <title>
+      Renovation Ideas - Tu socio de confianza para mejoras en el hogar
+    </title>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="logo">Renovation Ideas</div>
+        <ul class="nav-links">
+          <li><a href="#about">Sobre Nosotros</a></li>
+          <li><a href="#services">Servicios</a></li>
+          <li><a href="#work">Nuestro Trabajo</a></li>
+          <li><a href="#contact">Contacto</a></li>
+        </ul>
+        <a href={whatsappUrl} target="_blank" class="cta-button">Contactar</a>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">
+          Tu socio de confianza para calidad en mejoras del hogar
+        </h1>
+        <p class="hero-subtitle">
+          Renovation Ideas ofrece mejoras expertas en el hogar, creando espacios
+          hermosos y funcionales con artesanía de calidad.
+        </p>
+        <a href={whatsappUrl} target="_blank" class="hero-button"
+          >Trabaja con nosotros</a
+        >
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <h2 class="section-title">Sobre nosotros</h2>
+        <h3 class="section-subtitle">Especialistas en mejoras del hogar</h3>
+        <p class="about-text">
+          Bienvenido a Renovation Ideas, tus expertos en mejoras del hogar de
+          confianza, dedicados a transformar hogares con precisión y cuidado.
+          Con años de experiencia construyendo cocinas, baños, garajes y más,
+          nos enorgullecemos de ofrecer artesanía de primera calidad y una
+          experiencia de cliente sin complicaciones. Nuestra misión es hacer
+          realidad tu visión mientras garantizamos una comunicación clara y
+          orientación experta en cada paso. ¡Creemos un hogar que amarás!
+        </p>
+        <div class="stats">
+          <div class="stat-item">
+            <div class="stat-number">0</div>
+            <div class="stat-label">Años de experiencia</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">0</div>
+            <div class="stat-label">Proyectos completados</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">0</div>
+            <div class="stat-label">Comerciantes especializados</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">0%</div>
+            <div class="stat-label">Satisfacción del cliente</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+      <div class="container">
+        <h2 class="section-title">Servicios</h2>
+        <h3 class="section-subtitle">Lo que hacemos</h3>
+        <p class="services-intro">
+          Descubre cuál de nuestros servicios se adapta a las necesidades de tu
+          proyecto
+        </p>
+        <div class="services-grid">
+          <div class="service-card">
+            <h4>Cocinas</h4>
+            <p>
+              En Renovation Ideas, diseñamos y construimos cocinas
+              impresionantes adaptadas a tu estilo y necesidades. Ya sea un
+              espacio moderno y elegante o un look clásico y atemporal, nuestro
+              equipo experto ofrece artesanía de alta calidad, funcionalidad y
+              atención al detalle para crear el corazón de tu hogar.
+            </p>
+          </div>
+          <div class="service-card">
+            <h4>Baños</h4>
+            <p>
+              Desde baños principales lujosos hasta baños familiares prácticos,
+              Renovation Ideas ofrece espacios bellamente diseñados que combinan
+              estilo con funcionalidad. Nos encargamos de todo, desde azulejos y
+              accesorios hasta plomería e iluminación, asegurando un acabado de
+              alta calidad que mejora tanto la comodidad como la estética.
+            </p>
+          </div>
+          <div class="service-card">
+            <h4>Conversiones de Ático</h4>
+            <p>
+              Maximiza el potencial de tu hogar con una conversión de ático a
+              medida. Ya busques un dormitorio adicional, una oficina o un
+              espacio de vida, Renovation Ideas transforma áticos subutilizados
+              en áreas elegantes y funcionales, agregando valor y comodidad a tu
+              hogar con planificación experta y construcción de precisión.
+            </p>
+          </div>
+          <div class="service-card">
+            <h4>Extensiones</h4>
+            <p>
+              Amplía tu espacio de vida con una extensión de hogar sin fisuras.
+              Ya necesites una cocina más grande, una nueva área de estar o un
+              espacio multiusos, Renovation Ideas proporciona extensiones
+              diseñadas con experiencia diseñadas para mejorar el flujo, valor y
+              usabilidad de tu hogar, todo mientras mantiene su carácter único.
+            </p>
+          </div>
+          <div class="service-card">
+            <h4>Restauraciones</h4>
+            <p>
+              Devuelve el carácter de tu hogar a la vida con los servicios de
+              restauración expertos de Renovation Ideas. Ya sean características
+              de época, reparaciones estructurales o una renovación a gran
+              escala, preservamos y mejoramos los detalles originales mientras
+              garantizamos durabilidad moderna, creando un equilibrio perfecto
+              entre patrimonio y vida contemporánea.
+            </p>
+          </div>
+          <div class="service-card">
+            <h4>Trabajos Exteriores</h4>
+            <p>
+              Desde calzadas y patios hasta cercas y trabajos de ladrillo,
+              Renovation Ideas mejora el exterior de tu hogar con artesanía
+              duradera y de alta calidad. Ya sea mejorando el atractivo exterior
+              o creando un hermoso espacio al aire libre, nuestro equipo asegura
+              que cada detalle esté construido para durar y diseñado para
+              impresionar.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work Section -->
+    <section id="work" class="work">
+      <div class="container">
+        <h2 class="section-title">Nuestro Trabajo</h2>
+        <h3 class="section-subtitle">Inspírate con nuestro trabajo</h3>
+        <p class="work-intro">
+          Ve cómo hemos transformado hogares con nuestra artesanía experta y
+          atención al detalle.
+        </p>
+        <div class="work-grid">
+          <div class="work-item">
+            <h4>Refit de cocina moderna</h4>
+            <p>
+              Esta transformación de cocina trajo diseño moderno y elegante y
+              funcionalidad mejorada al hogar de nuestro cliente. Instalamos
+              gabinetes personalizados, encimeras de alta calidad y
+              electrodomésticos de última generación, creando un espacio
+              elegante pero práctico perfecto para cocinar y entretener. Con
+              atención a cada detalle, entregamos una cocina que equilibra
+              estética y usabilidad.
+            </p>
+            <div class="work-meta">
+              <span class="work-tag">Cocina</span>
+              <span class="work-duration">4 semanas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2 class="section-title">Contacto</h2>
+        <h3 class="section-subtitle">Ponte en contacto</h3>
+        <p class="contact-intro">
+          Para cualquier consulta o para explorar tu visión más a fondo, te
+          invitamos a contactar a nuestro equipo profesional usando los detalles
+          proporcionados a continuación.
+        </p>
+        <div class="contact-info">
+          <div class="contact-item">
+            <h4>Email</h4>
+            <p>hola@renovationideas.com</p>
+          </div>
+          <div class="contact-item">
+            <h4>Teléfono</h4>
+            <p>+34 123 456 789</p>
+          </div>
+        </div>
+        <a href={whatsappUrl} target="_blank" class="whatsapp-button"
+          >Contáctanos por WhatsApp</a
+        >
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h4>Enlaces rápidos</h4>
+            <ul>
+              <li><a href="#about">Sobre nosotros</a></li>
+              <li><a href="#work">Nuestro trabajo</a></li>
+              <li><a href="#services">Servicios</a></li>
+              <li><a href="#contact">Contacto</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <p>&copy; 2025 Renovation Ideas. Todos los derechos reservados.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style>
+  :global(*) {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :global(body) {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+  }
+
+  :global(a) {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* Navigation */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 1rem 0;
+  }
+
+  .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2563eb;
+  }
+
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+  }
+
+  .nav-links a {
+    color: #333;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover {
+    color: #2563eb;
+  }
+
+  .cta-button {
+    background: #2563eb;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background 0.3s;
+  }
+
+  .cta-button:hover {
+    background: #1d4ed8;
+  }
+
+  /* Hero Section */
+  .hero {
+    margin-top: 80px;
+    padding: 6rem 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+  }
+
+  .hero-button {
+    display: inline-block;
+    background: white;
+    color: #667eea;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition:
+      transform 0.3s,
+      box-shadow 0.3s;
+  }
+
+  .hero-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Section Styles */
+  section {
+    padding: 5rem 0;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #1e293b;
+  }
+
+  .section-subtitle {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #64748b;
+    font-weight: 400;
+  }
+
+  /* About Section */
+  .about {
+    background: #f8fafc;
+  }
+
+  .about-text {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #475569;
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .stat-item {
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .stat-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #2563eb;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    color: #64748b;
+    font-size: 0.9rem;
+  }
+
+  /* Services Section */
+  .services-intro {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #64748b;
+    font-size: 1.1rem;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .service-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition:
+      transform 0.3s,
+      box-shadow 0.3s;
+  }
+
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .service-card h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #1e293b;
+  }
+
+  .service-card p {
+    color: #64748b;
+    line-height: 1.7;
+  }
+
+  /* Work Section */
+  .work {
+    background: #f8fafc;
+  }
+
+  .work-intro {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #64748b;
+    font-size: 1.1rem;
+  }
+
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .work-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .work-item h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #1e293b;
+  }
+
+  .work-item p {
+    color: #64748b;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .work-meta {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .work-tag {
+    background: #2563eb;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+  }
+
+  .work-duration {
+    color: #64748b;
+    font-size: 0.9rem;
+  }
+
+  /* Contact Section */
+  .contact-intro {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #64748b;
+    font-size: 1.1rem;
+  }
+
+  .contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .contact-item {
+    text-align: center;
+    padding: 2rem;
+    background: #f8fafc;
+    border-radius: 12px;
+  }
+
+  .contact-item h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #1e293b;
+  }
+
+  .contact-item p {
+    color: #64748b;
+  }
+
+  .whatsapp-button {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    background: #25d366;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: background 0.3s;
+  }
+
+  .whatsapp-button:hover {
+    background: #20ba5a;
+  }
+
+  /* Footer */
+  .footer {
+    background: #1e293b;
+    color: white;
+    padding: 3rem 0;
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .footer-section ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-section a {
+    color: #cbd5e1;
+    transition: color 0.3s;
+  }
+
+  .footer-section a:hover {
+    color: white;
+  }
+
+  .footer-section h4 {
+    margin-bottom: 1rem;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+    }
+
+    .hero-title {
+      font-size: 2rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+    }
+
+    .services-grid,
+    .work-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>
