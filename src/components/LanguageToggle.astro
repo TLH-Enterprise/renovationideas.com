@@ -1,0 +1,126 @@
+---
+// Language Toggle Component
+---
+
+<button
+  id="language-toggle"
+  class="language-toggle"
+  aria-label="Toggle language"
+  data-language="en"
+>
+  <span class="language-flag">🇬🇧</span>
+  <span class="language-text">EN</span>
+</button>
+
+<style>
+  .language-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid rgba(93, 46, 140, 0.2);
+    border-radius: 25px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    color: #1a1a2e;
+  }
+
+  .language-toggle:hover {
+    background: rgba(93, 46, 140, 0.1);
+    border-color: rgba(93, 46, 140, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .language-toggle[data-language="es"] {
+    background: linear-gradient(
+      135deg,
+      rgba(93, 46, 140, 0.1) 0%,
+      rgba(224, 64, 143, 0.1) 100%
+    );
+    border-color: rgba(93, 46, 140, 0.3);
+  }
+
+  .language-flag {
+    font-size: 1.2rem;
+    line-height: 1;
+  }
+
+  .language-text {
+    font-size: 0.9rem;
+    font-weight: 700;
+  }
+
+  @media (max-width: 768px) {
+    .language-toggle {
+      padding: 0.4rem 0.8rem;
+      font-size: 0.85rem;
+    }
+
+    .language-flag {
+      font-size: 1rem;
+    }
+
+    .language-text {
+      font-size: 0.8rem;
+    }
+  }
+</style>
+
+<script>
+  // Language toggle functionality
+  const languageToggle = document.getElementById("language-toggle");
+  const defaultLanguage: "en" | "es" = "en";
+
+  // Get language from localStorage or use default
+  const getCurrentLanguage = (): "en" | "es" => {
+    const saved = localStorage.getItem("language") as "en" | "es" | null;
+    return saved || defaultLanguage;
+  };
+
+  // Set language in localStorage and update UI
+  const setLanguage = (lang: "en" | "es") => {
+    localStorage.setItem("language", lang);
+    updateToggleUI(lang);
+    updatePageContent(lang);
+  };
+
+  // Update toggle button UI
+  const updateToggleUI = (lang: "en" | "es") => {
+    if (languageToggle) {
+      languageToggle.setAttribute("data-language", lang);
+      const flag = languageToggle.querySelector(".language-flag");
+      const text = languageToggle.querySelector(".language-text");
+      if (flag) {
+        flag.textContent = lang === "en" ? "🇬🇧" : "🇪🇸";
+      }
+      if (text) {
+        text.textContent = lang === "en" ? "EN" : "ES";
+      }
+    }
+  };
+
+  // Update page content based on language
+  const updatePageContent = (lang: "en" | "es") => {
+    // Dispatch custom event for components to listen
+    const event = new CustomEvent("languageChange", {
+      detail: { language: lang },
+    });
+    document.dispatchEvent(event);
+  };
+
+  // Initialize language on page load
+  const currentLang = getCurrentLanguage();
+  updateToggleUI(currentLang);
+  updatePageContent(currentLang);
+
+  // Handle toggle click
+  if (languageToggle) {
+    languageToggle.addEventListener("click", () => {
+      const currentLang = getCurrentLanguage();
+      const newLang: "en" | "es" = currentLang === "en" ? "es" : "en";
+      setLanguage(newLang);
+    });
+  }
+</script>

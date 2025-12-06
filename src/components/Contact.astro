@@ -1,36 +1,45 @@
 ---
 const whatsappNumber = "1234567890";
-const whatsappMessage =
+const whatsappMessageEn =
+  "Hello, I'm interested in learning more about your renovation services.";
+const whatsappMessageEs =
   "Hola, me interesa conocer más sobre sus servicios de renovación.";
-const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+const whatsappUrlEn = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessageEn)}`;
+const whatsappUrlEs = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessageEs)}`;
 ---
 
 <section id="contact" class="contact">
   <div class="container">
-    <h2 class="section-title" data-scroll-fade>Contacto</h2>
-    <h3 class="section-subtitle" data-scroll-fade>Ponte en contacto</h3>
-    <p class="contact-intro" data-scroll-fade>
-      Para cualquier consulta o para explorar tu visión más a fondo, te
-      invitamos a contactar a nuestro equipo profesional usando los detalles
-      proporcionados a continuación.
+    <h2 class="section-title" data-scroll-fade data-i18n="contact.title">
+      Contact
+    </h2>
+    <h3 class="section-subtitle" data-scroll-fade data-i18n="contact.subtitle">
+      Get in touch
+    </h3>
+    <p class="contact-intro" data-scroll-fade data-i18n="contact.intro">
+      For any inquiry or to explore your vision further, we invite you to
+      contact our professional team using the details provided below.
     </p>
     <div class="contact-info" data-scroll-fade>
       <div class="contact-item">
         <div class="contact-icon">✉️</div>
         <h4>Email</h4>
-        <p>hola@renovationideas.com</p>
+        <p data-i18n="contact.email">hello@renovationideas.com</p>
       </div>
       <div class="contact-item">
         <div class="contact-icon">📞</div>
-        <h4>Teléfono</h4>
-        <p>+34 123 456 789</p>
+        <h4>Phone</h4>
+        <p data-i18n="contact.phone">+34 123 456 789</p>
       </div>
     </div>
     <a
-      href={whatsappUrl}
+      href={whatsappUrlEn}
       target="_blank"
       class="whatsapp-button"
-      data-scroll-fade>Contáctanos por WhatsApp</a
+      data-scroll-fade
+      data-i18n="contact.whatsapp"
+      data-whatsapp-en={whatsappUrlEn}
+      data-whatsapp-es={whatsappUrlEs}>Contact us on WhatsApp</a
     >
   </div>
 </section>

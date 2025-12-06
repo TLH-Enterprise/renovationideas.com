@@ -9,7 +9,7 @@ import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 ---
 
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -34,6 +34,8 @@ import "../styles/global.css";
     <Footer />
 
     <script>
+      import { initI18n } from "../scripts/i18n";
+
       // Smooth scroll navigation
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", (e: Event) => {
@@ -50,6 +52,9 @@ import "../styles/global.css";
           }
         });
       });
+
+      // Initialize i18n system
+      initI18n();
     </script>
   </body>
 </html>
