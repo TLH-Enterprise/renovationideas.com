@@ -84,11 +84,7 @@ export interface Translations {
   };
   contact: {
     title: string;
-    subtitle: string;
-    intro: string;
-    email: string;
-    phone: string;
-    whatsapp: string;
+    button: string;
   };
   footer: {
     quickLinks: string;
@@ -193,13 +189,8 @@ export const translations: Record<Language, Translations> = {
       },
     },
     contact: {
-      title: "Contact",
-      subtitle: "Get in touch",
-      intro:
-        "For any inquiry or to explore your vision further, we invite you to contact our professional team using the details provided below.",
-      email: "hello@renovationideas.com",
-      phone: "+34 123 456 789",
-      whatsapp: "Contact us on WhatsApp",
+      title: "Make your House a Home you love.",
+      button: "Get started now",
     },
     footer: {
       quickLinks: "Quick links",
@@ -304,13 +295,8 @@ export const translations: Record<Language, Translations> = {
       },
     },
     contact: {
-      title: "Contacto",
-      subtitle: "Ponte en contacto",
-      intro:
-        "Para cualquier consulta o para explorar tu visión más a fondo, te invitamos a contactar a nuestro equipo profesional usando los detalles proporcionados a continuación.",
-      email: "hola@renovationideas.com",
-      phone: "+34 123 456 789",
-      whatsapp: "Contáctanos por WhatsApp",
+      title: "Haz de tu casa un hogar que ames.",
+      button: "Comienza ahora",
     },
     footer: {
       quickLinks: "Enlaces rápidos",

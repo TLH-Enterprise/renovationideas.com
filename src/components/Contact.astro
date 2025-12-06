@@ -6,75 +6,90 @@ const whatsappMessageEs =
   "Hola, me interesa conocer más sobre sus servicios de renovación.";
 const whatsappUrlEn = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessageEn)}`;
 const whatsappUrlEs = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessageEs)}`;
+const contactBgImage = "/contact-bg.jpg";
 ---
 
 <section id="contact" class="contact">
+  <div
+    class="contact-background-image"
+    style={`background-image: url(${contactBgImage});`}
+  >
+  </div>
+  <div class="contact-overlay"></div>
   <div class="container">
-    <h2 class="section-title" data-scroll-fade data-i18n="contact.title">
-      Contact
+    <h2 class="contact-title" data-scroll-fade data-i18n="contact.title">
+      Make your House a Home you love.
     </h2>
-    <h3 class="section-subtitle" data-scroll-fade data-i18n="contact.subtitle">
-      Get in touch
-    </h3>
-    <p class="contact-intro" data-scroll-fade data-i18n="contact.intro">
-      For any inquiry or to explore your vision further, we invite you to
-      contact our professional team using the details provided below.
-    </p>
-    <div class="contact-info" data-scroll-fade>
-      <div class="contact-item">
-        <div class="contact-icon">✉️</div>
-        <h4>Email</h4>
-        <p data-i18n="contact.email">hello@renovationideas.com</p>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">📞</div>
-        <h4>Phone</h4>
-        <p data-i18n="contact.phone">+34 123 456 789</p>
-      </div>
-    </div>
     <a
       href={whatsappUrlEn}
       target="_blank"
       class="whatsapp-button"
       data-scroll-fade
-      data-i18n="contact.whatsapp"
+      data-i18n="contact.button"
       data-whatsapp-en={whatsappUrlEn}
-      data-whatsapp-es={whatsappUrlEs}>Contact us on WhatsApp</a
+      data-whatsapp-es={whatsappUrlEs}>Get started now</a
     >
   </div>
 </section>
 
 <style>
   .contact {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-    color: white;
-    padding: 6rem 0;
     position: relative;
+    color: white;
+    padding: 8rem 0;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .contact-background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+  }
+
+  .contact-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
   }
 
   .container {
+    position: relative;
+    z-index: 2;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 3rem;
   }
 
-  .section-title {
-    font-size: clamp(2rem, 4vw, 3.5rem);
+  .contact-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
     font-weight: 700;
-    text-align: center;
-    margin-bottom: 1rem;
-    background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .section-subtitle {
-    font-size: clamp(1.2rem, 2vw, 1.8rem);
-    text-align: center;
-    margin-bottom: 3rem;
-    color: rgba(255, 255, 255, 0.8);
-    font-weight: 400;
+    line-height: 1.2;
+    color: white;
+    margin: 0;
+    max-width: 900px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
   }
 
   [data-scroll-fade] {
@@ -90,79 +105,45 @@ const whatsappUrlEs = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent
     transform: translateY(0);
   }
 
-  .contact-intro {
-    text-align: center;
-    margin-bottom: 4rem;
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 1.15rem;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .contact-info {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 3rem;
-  }
-
-  .contact-item {
-    text-align: center;
-    padding: 2.5rem 2rem;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    transition:
-      transform 0.3s,
-      background 0.3s;
-  }
-
-  .contact-item:hover {
-    transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.15);
-  }
-
-  .contact-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .contact-item h4 {
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
-    color: white;
-  }
-
-  .contact-item p {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 1.1rem;
-  }
-
   .whatsapp-button {
-    display: block;
-    width: fit-content;
-    margin: 3rem auto 0;
-    background: linear-gradient(135deg, #25d366 0%, #20ba5a 100%);
+    display: inline-block;
+    background: #8b7355;
     color: white;
-    padding: 1.2rem 3rem;
-    border-radius: 50px;
+    padding: 1.2rem 3.5rem;
+    border-radius: 8px;
     font-weight: 600;
     font-size: 1.1rem;
+    text-decoration: none;
     transition:
       transform 0.3s,
+      background 0.3s,
       box-shadow 0.3s;
+    border: none;
+    cursor: pointer;
   }
 
   .whatsapp-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4);
+    transform: translateY(-2px);
+    background: #9d8265;
+    box-shadow: 0 10px 25px rgba(139, 115, 85, 0.3);
   }
 
   @media (max-width: 768px) {
-    .contact-info {
-      grid-template-columns: 1fr;
+    .contact {
+      padding: 6rem 0;
+    }
+
+    .container {
+      gap: 2rem;
+    }
+
+    .contact-title {
+      font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    .whatsapp-button {
+      padding: 1rem 2.5rem;
+      font-size: 1rem;
     }
   }
 </style>
