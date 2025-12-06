@@ -1,0 +1,220 @@
+---
+// Work Section Component
+---
+
+<section id="work" class="work">
+  <div class="container">
+    <h2 class="section-title" data-scroll-fade>Trabajos realizados</h2>
+    <h3 class="section-subtitle" data-scroll-fade>
+      Inspírate con nuestro trabajo
+    </h3>
+    <p class="work-intro" data-scroll-fade>
+      Ve cómo hemos transformado hogares con nuestra artesanía experta y
+      atención al detalle.
+    </p>
+    <div class="work-grid">
+      <div class="work-item" data-scroll-fade>
+        <div class="work-image-placeholder">
+          <div class="work-image-gradient"></div>
+        </div>
+        <h4>Refit de cocina moderna</h4>
+        <p>
+          Esta transformación de cocina trajo diseño moderno y elegante y
+          funcionalidad mejorada al hogar de nuestro cliente. Instalamos
+          gabinetes personalizados, encimeras de alta calidad y
+          electrodomésticos de última generación, creando un espacio elegante
+          pero práctico perfecto para cocinar y entretener.
+        </p>
+        <div class="work-meta">
+          <span class="work-tag">Cocina</span>
+          <span class="work-duration">4 semanas</span>
+        </div>
+      </div>
+      <div class="work-item" data-scroll-fade>
+        <div class="work-image-placeholder">
+          <div class="work-image-gradient"></div>
+        </div>
+        <h4>Renovación de baño principal</h4>
+        <p>
+          Transformamos un baño anticuado en un oasis moderno de relajación.
+          Incluye azulejos de lujo, ducha de lluvia, bañera independiente y
+          acabados de primera calidad que combinan elegancia con funcionalidad.
+        </p>
+        <div class="work-meta">
+          <span class="work-tag">Baño</span>
+          <span class="work-duration">3 semanas</span>
+        </div>
+      </div>
+      <div class="work-item" data-scroll-fade>
+        <div class="work-image-placeholder">
+          <div class="work-image-gradient"></div>
+        </div>
+        <h4>Extensión de cocina y comedor</h4>
+        <p>
+          Ampliamos el espacio de vida con una extensión luminosa que conecta la
+          cocina con el jardín. Diseño abierto con grandes ventanales,
+          iluminación natural y acabados modernos que crean un ambiente acogedor
+          y funcional.
+        </p>
+        <div class="work-meta">
+          <span class="work-tag">Extensión</span>
+          <span class="work-duration">8 semanas</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .work {
+    background: #f8fafc;
+    padding: 6rem 0;
+    position: relative;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #5d2e8c 0%, #e0408f 50%, #ff8c42 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .section-subtitle {
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #64748b;
+    font-weight: 400;
+  }
+
+  [data-scroll-fade] {
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
+  }
+
+  [data-scroll-fade].visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .work-intro {
+    text-align: center;
+    margin-bottom: 4rem;
+    color: #64748b;
+    font-size: 1.15rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    margin-top: 4rem;
+  }
+
+  .work-item {
+    background: white;
+    padding: 0;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition:
+      transform 0.3s,
+      box-shadow 0.3s;
+  }
+
+  .work-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(93, 46, 140, 0.2);
+  }
+
+  .work-image-placeholder {
+    width: 100%;
+    height: 250px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .work-image-gradient {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #5d2e8c 0%, #e0408f 50%, #ff8c42 100%);
+    opacity: 0.8;
+  }
+
+  .work-item h4 {
+    font-size: 1.5rem;
+    margin: 1.5rem 1.5rem 1rem;
+    color: #1e293b;
+  }
+
+  .work-item p {
+    color: #64748b;
+    line-height: 1.7;
+    margin: 0 1.5rem 1.5rem;
+  }
+
+  .work-meta {
+    display: flex;
+    gap: 1rem;
+    margin: 0 1.5rem 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e2e8f0;
+  }
+
+  .work-tag {
+    background: linear-gradient(135deg, #5d2e8c 0%, #e0408f 50%, #ff8c42 100%);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .work-duration {
+    color: #64748b;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+  }
+
+  @media (max-width: 768px) {
+    .work-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -100px 0px",
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll("[data-scroll-fade]").forEach((el) => {
+    observer.observe(el);
+  });
+</script>

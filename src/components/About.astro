@@ -1,0 +1,194 @@
+---
+// About Section Component
+---
+
+<section id="about" class="about">
+  <div class="container">
+    <h2 class="section-title" data-scroll-fade>Sobre nosotros</h2>
+    <h3 class="section-subtitle" data-scroll-fade>
+      Especialistas en mejoras del hogar
+    </h3>
+    <p class="about-text" data-scroll-fade>
+      Bienvenido a Renovation Ideas, tus expertos en mejoras del hogar de
+      confianza, dedicados a transformar hogares con precisión y cuidado. Con
+      años de experiencia construyendo cocinas, baños, garajes y más, nos
+      enorgullecemos de ofrecer artesanía de primera calidad y una experiencia
+      de cliente sin complicaciones. Nuestra misión es hacer realidad tu visión
+      mientras garantizamos una comunicación clara y orientación experta en cada
+      paso. ¡Creemos un hogar que amarás!
+    </p>
+    <div class="stats" data-scroll-fade>
+      <div class="stat-item" data-stat="15">
+        <div class="stat-number">0</div>
+        <div class="stat-label">Años de experiencia</div>
+      </div>
+      <div class="stat-item" data-stat="250">
+        <div class="stat-number">0</div>
+        <div class="stat-label">Proyectos completados</div>
+      </div>
+      <div class="stat-item" data-stat="12">
+        <div class="stat-number">0</div>
+        <div class="stat-label">Comerciantes especializados</div>
+      </div>
+      <div class="stat-item" data-stat="98">
+        <div class="stat-number">0%</div>
+        <div class="stat-label">Satisfacción del cliente</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    padding: 6rem 0;
+    position: relative;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #5d2e8c 0%, #e0408f 50%, #ff8c42 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .section-subtitle {
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #64748b;
+    font-weight: 400;
+  }
+
+  [data-scroll-fade] {
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
+  }
+
+  [data-scroll-fade].visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .about-text {
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    text-align: center;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #475569;
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+  }
+
+  .stat-item {
+    text-align: center;
+    padding: 2.5rem 2rem;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition:
+      transform 0.3s,
+      box-shadow 0.3s;
+  }
+
+  .stat-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(93, 46, 140, 0.15);
+  }
+
+  .stat-number {
+    font-size: 3.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #5d2e8c 0%, #e0408f 50%, #ff8c42 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    color: #64748b;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+    .stats {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .stats {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  const animateCounter = (
+    element: HTMLElement,
+    target: number,
+    suffix = ""
+  ) => {
+    let current = 0;
+    const increment = target / 50;
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        element.textContent = target + suffix;
+        clearInterval(timer);
+      } else {
+        element.textContent = Math.floor(current) + suffix;
+      }
+    }, 30);
+  };
+
+  const statsObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (
+          entry.isIntersecting &&
+          !entry.target.classList.contains("counted")
+        ) {
+          entry.target.classList.add("counted");
+          const statItem = entry.target as HTMLElement;
+          const targetValue = parseInt(
+            (statItem as HTMLElement).dataset.stat || "0"
+          );
+          const numberElement = statItem.querySelector(
+            ".stat-number"
+          ) as HTMLElement;
+          if (numberElement) {
+            const suffix = numberElement.textContent?.includes("%") ? "%" : "";
+            animateCounter(numberElement, targetValue, suffix);
+          }
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  document.querySelectorAll("[data-stat]").forEach((stat) => {
+    statsObserver.observe(stat);
+  });
+</script>

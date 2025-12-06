@@ -1,0 +1,204 @@
+---
+// Services Section Component
+---
+
+<section id="services" class="services">
+  <div class="container">
+    <h2 class="section-title" data-scroll-fade>Servicios</h2>
+    <h3 class="section-subtitle" data-scroll-fade>Lo que hacemos</h3>
+    <p class="services-intro" data-scroll-fade>
+      Descubre cuál de nuestros servicios se adapta a las necesidades de tu
+      proyecto
+    </p>
+    <div class="services-grid">
+      <div class="service-card" data-scroll-fade>
+        <div class="service-icon">🍳</div>
+        <h4>Cocinas</h4>
+        <p>
+          En Renovation Ideas, diseñamos y construimos cocinas impresionantes
+          adaptadas a tu estilo y necesidades. Ya sea un espacio moderno y
+          elegante o un look clásico y atemporal, nuestro equipo experto ofrece
+          artesanía de alta calidad, funcionalidad y atención al detalle para
+          crear el corazón de tu hogar.
+        </p>
+      </div>
+      <div class="service-card" data-scroll-fade>
+        <div class="service-icon">🚿</div>
+        <h4>Baños</h4>
+        <p>
+          Desde baños principales lujosos hasta baños familiares prácticos,
+          Renovation Ideas ofrece espacios bellamente diseñados que combinan
+          estilo con funcionalidad. Nos encargamos de todo, desde azulejos y
+          accesorios hasta plomería e iluminación, asegurando un acabado de alta
+          calidad que mejora tanto la comodidad como la estética.
+        </p>
+      </div>
+      <div class="service-card" data-scroll-fade>
+        <div class="service-icon">🏠</div>
+        <h4>Conversiones de Ático</h4>
+        <p>
+          Maximiza el potencial de tu hogar con una conversión de ático a
+          medida. Ya busques un dormitorio adicional, una oficina o un espacio
+          de vida, Renovation Ideas transforma áticos subutilizados en áreas
+          elegantes y funcionales, agregando valor y comodidad a tu hogar con
+          planificación experta y construcción de precisión.
+        </p>
+      </div>
+      <div class="service-card" data-scroll-fade>
+        <div class="service-icon">📐</div>
+        <h4>Extensiones</h4>
+        <p>
+          Amplía tu espacio de vida con una extensión de hogar sin fisuras. Ya
+          necesites una cocina más grande, una nueva área de estar o un espacio
+          multiusos, Renovation Ideas proporciona extensiones diseñadas con
+          experiencia diseñadas para mejorar el flujo, valor y usabilidad de tu
+          hogar, todo mientras mantiene su carácter único.
+        </p>
+      </div>
+      <div class="service-card" data-scroll-fade>
+        <div class="service-icon">🔨</div>
+        <h4>Restauraciones</h4>
+        <p>
+          Devuelve el carácter de tu hogar a la vida con los servicios de
+          restauración expertos de Renovation Ideas. Ya sean características de
+          época, reparaciones estructurales o una renovación a gran escala,
+          preservamos y mejoramos los detalles originales mientras garantizamos
+          durabilidad moderna, creando un equilibrio perfecto entre patrimonio y
+          vida contemporánea.
+        </p>
+      </div>
+      <div class="service-card" data-scroll-fade>
+        <div class="service-icon">🌳</div>
+        <h4>Trabajos Exteriores</h4>
+        <p>
+          Desde calzadas y patios hasta cercas y trabajos de ladrillo,
+          Renovation Ideas mejora el exterior de tu hogar con artesanía duradera
+          y de alta calidad. Ya sea mejorando el atractivo exterior o creando un
+          hermoso espacio al aire libre, nuestro equipo asegura que cada detalle
+          esté construido para durar y diseñado para impresionar.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .services {
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    padding: 6rem 0;
+    position: relative;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #5d2e8c 0%, #e0408f 50%, #ff8c42 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .section-subtitle {
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #64748b;
+    font-weight: 400;
+  }
+
+  [data-scroll-fade] {
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
+  }
+
+  [data-scroll-fade].visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .services-intro {
+    text-align: center;
+    margin-bottom: 4rem;
+    color: #64748b;
+    font-size: 1.15rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    margin-top: 4rem;
+  }
+
+  .service-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition:
+      transform 0.3s,
+      box-shadow 0.3s;
+    text-align: center;
+  }
+
+  .service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(93, 46, 140, 0.2);
+  }
+
+  .service-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-card h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #1e293b;
+    font-weight: 600;
+  }
+
+  .service-card p {
+    color: #64748b;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 768px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -100px 0px",
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll("[data-scroll-fade]").forEach((el) => {
+    observer.observe(el);
+  });
+</script>

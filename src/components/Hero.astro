@@ -1,0 +1,133 @@
+---
+// Hero Section Component
+---
+
+<section id="hero" class="hero">
+  <div class="hero-content">
+    <h1 class="hero-title" data-fade-in>
+      Transformamos tus ideas en espacios extraordinarios
+    </h1>
+    <p class="hero-subtitle" data-fade-in>
+      Renovation Ideas ofrece renovación de interiores y exteriores, creando
+      espacios hermosos y funcionales con artesanía de calidad.
+    </p>
+    <a href="#contact" class="hero-button" data-fade-in>Comienza tu proyecto</a>
+  </div>
+  <div class="hero-gradient"></div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 8rem 0 4rem;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  }
+
+  .hero-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(93, 46, 140, 0.3) 0%,
+      rgba(224, 64, 143, 0.3) 50%,
+      rgba(255, 140, 66, 0.3) 100%
+    );
+    opacity: 0.6;
+    z-index: 0;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    color: white;
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+      opacity 0.8s ease,
+      transform 0.8s ease;
+  }
+
+  .hero-title.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    margin-bottom: 2.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+      opacity 0.8s ease 0.2s,
+      transform 0.8s ease 0.2s;
+  }
+
+  .hero-subtitle.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .hero-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #5d2e8c 0%, #e0408f 50%, #ff8c42 100%);
+    color: white;
+    padding: 1.2rem 3rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition:
+      transform 0.3s,
+      box-shadow 0.3s;
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+      opacity 0.8s ease 0.4s,
+      transform 0.8s ease 0.4s,
+      box-shadow 0.3s;
+  }
+
+  .hero-button.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .hero-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(93, 46, 140, 0.4);
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 6rem 0 3rem;
+      min-height: 90vh;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll("[data-fade-in]").forEach((el, index) => {
+    setTimeout(() => {
+      el.classList.add("visible");
+    }, index * 200);
+  });
+</script>
