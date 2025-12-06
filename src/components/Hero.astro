@@ -1,8 +1,21 @@
 ---
 // Hero Section Component
+// Para usar una imagen de fondo, coloca tu imagen en public/hero-bg.jpg (o .png, .webp)
+// y actualiza la variable heroImagePath abajo, o déjala vacía para usar solo el gradiente
+const heroImagePath = "/hero-bg.jpg"; // Cambia esto por la ruta de tu imagen en public/
+// Ejemplo: "/hero-bg.jpg" o "/images/hero-background.png" o "" para solo gradiente
 ---
 
 <section id="hero" class="hero">
+  {
+    heroImagePath && (
+      <div
+        class="hero-background-image"
+        style={`background-image: url(${heroImagePath});`}
+      />
+    )
+  }
+  <div class="hero-gradient"></div>
   <div class="hero-content">
     <h1 class="hero-title" data-fade-in data-i18n="hero.title">
       Transform your ideas into extraordinary spaces
@@ -11,11 +24,7 @@
       Renovation Ideas offers interior and exterior renovation, creating
       beautiful and functional spaces with quality craftsmanship.
     </p>
-    <a href="#contact" class="hero-button" data-fade-in data-i18n="hero.button"
-      >Start your project</a
-    >
   </div>
-  <div class="hero-gradient"></div>
 </section>
 
 <style>
@@ -23,12 +32,27 @@
     position: relative;
     min-height: 100vh;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 8rem 0 4rem;
+    align-items: flex-end;
+    justify-content: flex-start;
+    text-align: left;
+    padding: 0;
     overflow: hidden;
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  }
+
+  .hero-background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+    opacity: 1;
   }
 
   .hero-gradient {
@@ -44,15 +68,34 @@
       rgba(255, 140, 66, 0.3) 100%
     );
     opacity: 0.6;
-    z-index: 0;
+    z-index: 1;
+  }
+
+  /* Overlay oscuro para mejorar legibilidad del texto sobre la imagen */
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.3) 50%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    z-index: 1;
   }
 
   .hero-content {
     position: relative;
-    z-index: 1;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 20px;
+    z-index: 2;
+    max-width: 600px;
+    margin: 0;
+    padding: 0 3rem;
+    padding-bottom: 2rem;
+    margin-bottom: 0;
   }
 
   .hero-title {
@@ -61,6 +104,7 @@
     margin-bottom: 1.5rem;
     line-height: 1.2;
     color: white;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     opacity: 0;
     transform: translateY(30px);
     transition:
@@ -76,7 +120,8 @@
   .hero-subtitle {
     font-size: clamp(1.1rem, 2vw, 1.5rem);
     margin-bottom: 2.5rem;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     opacity: 0;
     transform: translateY(30px);
     transition:
@@ -120,8 +165,22 @@
 
   @media (max-width: 768px) {
     .hero {
-      padding: 6rem 0 3rem;
       min-height: 90vh;
+    }
+
+    .hero-content {
+      max-width: 100%;
+      padding: 0 2rem;
+      padding-bottom: 5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 6vw, 3rem);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 3vw, 1.2rem);
     }
   }
 </style>

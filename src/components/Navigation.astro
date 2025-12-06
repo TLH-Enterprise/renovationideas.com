@@ -12,7 +12,17 @@ const whatsappUrlEs = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent
 
 <nav class="navbar" id="navbar">
   <div class="nav-container">
-    <div class="logo">Renovation Ideas</div>
+    <div class="logo">
+      <img
+        src="/logo-renovation-ideas.png"
+        alt="Renovation Ideas Logo"
+        class="logo-image"
+      />
+      <div class="logo-text">
+        <span class="logo-line1">Renovation</span>
+        <span class="logo-line2">Ideas</span>
+      </div>
+    </div>
     <ul class="nav-links">
       <li><a href="#hero" data-nav-link data-i18n="nav.home">Home</a></li>
       <li><a href="#about" data-nav-link data-i18n="nav.about">About Us</a></li>
@@ -44,17 +54,19 @@ const whatsappUrlEs = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(20px);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    box-shadow: none;
     z-index: 1000;
-    padding: 1rem 0;
+    padding: 1.5rem 0;
     transition: all 0.3s ease;
   }
 
   .navbar.scrolled {
     background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
   }
 
   .nav-container {
@@ -67,12 +79,46 @@ const whatsappUrlEs = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent
   }
 
   .logo {
-    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
     font-weight: 700;
+    transition: all 0.3s ease;
+  }
+
+  .logo-image {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+    transition: all 0.3s ease;
+  }
+
+  .navbar.scrolled .logo-image {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+  }
+
+  .logo-line1,
+  .logo-line2 {
+    font-size: 1.5rem;
+    color: white;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .navbar.scrolled .logo-line1,
+  .navbar.scrolled .logo-line2 {
     background: linear-gradient(135deg, #5d2e8c 0%, #e0408f 50%, #ff8c42 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    text-shadow: none;
   }
 
   .nav-links {
@@ -82,10 +128,16 @@ const whatsappUrlEs = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent
   }
 
   .nav-links a {
-    color: #1a1a2e;
+    color: white;
     font-weight: 500;
     transition: color 0.3s;
     position: relative;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .navbar.scrolled .nav-links a {
+    color: #1a1a2e;
+    text-shadow: none;
   }
 
   .nav-links a::after {
@@ -104,6 +156,10 @@ const whatsappUrlEs = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent
   }
 
   .nav-links a:hover {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .navbar.scrolled .nav-links a:hover {
     color: #5d2e8c;
   }
 
