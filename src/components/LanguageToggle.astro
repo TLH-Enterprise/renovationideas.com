@@ -2,60 +2,95 @@
 // Language Toggle Component
 ---
 
-<button
-  id="language-toggle"
-  class="language-toggle"
-  aria-label="Toggle language"
-  data-language="en"
->
-  <span class="language-flag">🇬🇧</span>
-  <span class="language-text">EN</span>
-</button>
+<div class="language-toggle-container">
+  <button class="language-option" data-lang="en" aria-label="Switch to English">
+    EN
+  </button>
+  <button class="language-option" data-lang="es" aria-label="Switch to Spanish">
+    ES
+  </button>
+</div>
 
 <style>
-  .language-toggle {
+  .language-toggle-container {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 25px;
+    padding: 0.25rem;
+    gap: 0.25rem;
+    transition: all 0.3s ease;
+  }
+
+  .navbar.scrolled .language-toggle-container {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(93, 46, 140, 0.2);
+  }
+
+  .language-option {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    background: rgba(255, 255, 255, 0.9);
-    border: 2px solid rgba(93, 46, 140, 0.2);
-    border-radius: 25px;
+    background: transparent;
+    border: none;
+    border-radius: 20px;
     padding: 0.5rem 1rem;
     cursor: pointer;
     transition: all 0.3s ease;
     font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+
+  .navbar.scrolled .language-option {
+    color: rgba(26, 26, 46, 0.6);
+    text-shadow: none;
+  }
+
+  .language-option.active {
+    background: rgba(255, 255, 255, 0.95);
     color: #1a1a2e;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    text-shadow: none;
   }
 
-  .language-toggle:hover {
+  .navbar.scrolled .language-option.active {
+    background: linear-gradient(135deg, #5d2e8c 0%, #e0408f 50%, #ff8c42 100%);
+    color: white;
+    box-shadow: 0 2px 8px rgba(93, 46, 140, 0.3);
+  }
+
+  .language-option:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .navbar.scrolled .language-option:hover:not(.active) {
     background: rgba(93, 46, 140, 0.1);
-    border-color: rgba(93, 46, 140, 0.4);
-    transform: translateY(-2px);
-  }
-
-  .language-toggle[data-language="es"] {
-    background: linear-gradient(
-      135deg,
-      rgba(93, 46, 140, 0.1) 0%,
-      rgba(224, 64, 143, 0.1) 100%
-    );
-    border-color: rgba(93, 46, 140, 0.3);
+    color: #5d2e8c;
   }
 
   .language-flag {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     line-height: 1;
   }
 
   .language-text {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 700;
   }
 
   @media (max-width: 768px) {
-    .language-toggle {
+    .language-toggle-container {
+      padding: 0.2rem;
+      gap: 0.2rem;
+    }
+
+    .language-option {
       padding: 0.4rem 0.8rem;
-      font-size: 0.85rem;
+      gap: 0.4rem;
     }
 
     .language-flag {
@@ -63,14 +98,13 @@
     }
 
     .language-text {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
     }
   }
 </style>
 
 <script>
   // Language toggle functionality
-  const languageToggle = document.getElementById("language-toggle");
   const defaultLanguage: "en" | "es" = "en";
 
   // Get language from localStorage or use default
@@ -86,17 +120,25 @@
     updatePageContent(lang);
   };
 
-  // Update toggle button UI
+  // Update toggle buttons UI
   const updateToggleUI = (lang: "en" | "es") => {
-    if (languageToggle) {
-      languageToggle.setAttribute("data-language", lang);
-      const flag = languageToggle.querySelector(".language-flag");
-      const text = languageToggle.querySelector(".language-text");
-      if (flag) {
-        flag.textContent = lang === "en" ? "🇬🇧" : "🇪🇸";
-      }
-      if (text) {
-        text.textContent = lang === "en" ? "EN" : "ES";
+    const enButton = document.querySelector(
+      '.language-option[data-lang="en"]'
+    ) as HTMLElement;
+    const esButton = document.querySelector(
+      '.language-option[data-lang="es"]'
+    ) as HTMLElement;
+
+    if (enButton && esButton) {
+      // Remove active class from both
+      enButton.classList.remove("active");
+      esButton.classList.remove("active");
+
+      // Add active class to selected language
+      if (lang === "en") {
+        enButton.classList.add("active");
+      } else {
+        esButton.classList.add("active");
       }
     }
   };
@@ -115,12 +157,15 @@
   updateToggleUI(currentLang);
   updatePageContent(currentLang);
 
-  // Handle toggle click
-  if (languageToggle) {
-    languageToggle.addEventListener("click", () => {
-      const currentLang = getCurrentLanguage();
-      const newLang: "en" | "es" = currentLang === "en" ? "es" : "en";
-      setLanguage(newLang);
+  // Handle language option clicks
+  document.querySelectorAll(".language-option").forEach((button) => {
+    button.addEventListener("click", () => {
+      const lang = (button as HTMLElement).getAttribute("data-lang") as
+        | "en"
+        | "es";
+      if (lang) {
+        setLanguage(lang);
+      }
     });
-  }
+  });
 </script>
