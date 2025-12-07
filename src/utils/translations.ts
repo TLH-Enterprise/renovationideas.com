@@ -64,15 +64,7 @@ export interface Translations {
         title: string;
         description: string;
       };
-      lofts: {
-        title: string;
-        description: string;
-      };
-      extensions: {
-        title: string;
-        description: string;
-      };
-      restorations: {
+      interior: {
         title: string;
         description: string;
       };
@@ -170,23 +162,13 @@ export const translations: Record<Language, Translations> = {
           description:
             "From luxurious master bathrooms to practical family bathrooms, Renovation Ideas offers beautifully designed spaces that combine style with functionality. We take care of everything, from tiles and fixtures to plumbing and lighting, ensuring a high-quality finish that improves both comfort and aesthetics.",
         },
-        lofts: {
-          title: "Loft Conversions",
+        interior: {
+          title: "Interior",
           description:
-            "Maximize your home's potential with a custom loft conversion. Whether you're looking for an additional bedroom, an office or a living space, Renovation Ideas transforms underutilized lofts into elegant and functional areas, adding value and comfort to your home with expert planning and precision construction.",
-        },
-        extensions: {
-          title: "Extensions",
-          description:
-            "Expand your living space with a seamless home extension. Whether you need a larger kitchen, a new living area or a multi-purpose space, Renovation Ideas provides expertly designed extensions designed to improve the flow, value and usability of your home, all while maintaining its unique character.",
-        },
-        restorations: {
-          title: "Restorations",
-          description:
-            "Bring your home's character back to life with Renovation Ideas' expert restoration services. Whether it's period features, structural repairs or a large-scale renovation, we preserve and enhance original details while ensuring modern durability, creating a perfect balance between heritage and contemporary living.",
+            "Transform your home's interior with our comprehensive interior renovation services. From loft conversions and home extensions to complete restorations, Renovation Ideas creates elegant and functional interior spaces that maximize your home's potential, adding value and comfort with expert planning and precision construction.",
         },
         exterior: {
-          title: "Exterior Work",
+          title: "Exterior",
           description:
             "From driveways and patios to fences and brickwork, Renovation Ideas enhances your home's exterior with durable, high-quality craftsmanship. Whether improving curb appeal or creating a beautiful outdoor space, our team ensures every detail is built to last and designed to impress.",
         },
@@ -279,23 +261,13 @@ export const translations: Record<Language, Translations> = {
           description:
             "Desde baños principales lujosos hasta baños familiares prácticos, Renovation Ideas ofrece espacios bellamente diseñados que combinan estilo con funcionalidad. Nos encargamos de todo, desde azulejos y accesorios hasta plomería e iluminación, asegurando un acabado de alta calidad que mejora tanto la comodidad como la estética.",
         },
-        lofts: {
-          title: "Conversiones de Ático",
+        interior: {
+          title: "Interiores",
           description:
-            "Maximiza el potencial de tu hogar con una conversión de ático a medida. Ya busques un dormitorio adicional, una oficina o un espacio de vida, Renovation Ideas transforma áticos subutilizados en áreas elegantes y funcionales, agregando valor y comodidad a tu hogar con planificación experta y construcción de precisión.",
-        },
-        extensions: {
-          title: "Extensiones",
-          description:
-            "Amplía tu espacio de vida con una extensión de hogar sin fisuras. Ya necesites una cocina más grande, una nueva área de estar o un espacio multiusos, Renovation Ideas proporciona extensiones diseñadas con experiencia diseñadas para mejorar el flujo, valor y usabilidad de tu hogar, todo mientras mantiene su carácter único.",
-        },
-        restorations: {
-          title: "Restauraciones",
-          description:
-            "Devuelve el carácter de tu hogar a la vida con los servicios de restauración expertos de Renovation Ideas. Ya sean características de época, reparaciones estructurales o una renovación a gran escala, preservamos y mejoramos los detalles originales mientras garantizamos durabilidad moderna, creando un equilibrio perfecto entre patrimonio y vida contemporánea.",
+            "Transforma el interior de tu hogar con nuestros servicios integrales de renovación interior. Desde conversiones de ático y extensiones de hogar hasta restauraciones completas, Renovation Ideas crea espacios interiores elegantes y funcionales que maximizan el potencial de tu hogar, agregando valor y comodidad con planificación experta y construcción de precisión.",
         },
         exterior: {
-          title: "Trabajos Exteriores",
+          title: "Exteriores",
           description:
             "Desde calzadas y patios hasta cercas y trabajos de ladrillo, Renovation Ideas mejora el exterior de tu hogar con artesanía duradera y de alta calidad. Ya sea mejorando el atractivo exterior o creando un hermoso espacio al aire libre, nuestro equipo asegura que cada detalle esté construido para durar y diseñado para impresionar.",
         },
