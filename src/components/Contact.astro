@@ -27,8 +27,10 @@ const contactBgImage = "/contact-bg.jpg";
       data-scroll-fade
       data-i18n="contact.button"
       data-whatsapp-en={whatsappUrlEn}
-      data-whatsapp-es={whatsappUrlEs}>Get started now</a
+      data-whatsapp-es={whatsappUrlEs}
     >
+      Get started now
+    </a>
   </div>
 </section>
 
@@ -107,7 +109,8 @@ const contactBgImage = "/contact-bg.jpg";
 
   .whatsapp-button {
     display: inline-block;
-    background: #8b7355;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
     color: white;
     padding: 1.2rem 3.5rem;
     border-radius: 8px;
@@ -118,14 +121,16 @@ const contactBgImage = "/contact-bg.jpg";
       transform 0.3s,
       background 0.3s,
       box-shadow 0.3s;
-    border: none;
+    border: 1px solid rgba(255, 255, 255, 0.3);
     cursor: pointer;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   }
 
   .whatsapp-button:hover {
     transform: translateY(-2px);
-    background: #9d8265;
-    box-shadow: 0 10px 25px rgba(139, 115, 85, 0.3);
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
   }
 
   @media (max-width: 768px) {
