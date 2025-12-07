@@ -88,10 +88,13 @@ export interface Translations {
   };
   footer: {
     quickLinks: string;
+    socialmedia: string;
     about: string;
     work: string;
     services: string;
     contact: string;
+    instagram: string;
+    TLH: string;
     copyright: string;
   };
 }
@@ -126,7 +129,8 @@ export const translations: Record<Language, Translations> = {
     work: {
       title: "Our Work",
       subtitle: "Get inspired by our work",
-      intro: "See how we've transformed homes with our expert craftsmanship and attention to detail.",
+      intro:
+        "See how we've transformed homes with our expert craftsmanship and attention to detail.",
       projects: {
         kitchen: {
           title: "Modern kitchen refit",
@@ -194,10 +198,13 @@ export const translations: Record<Language, Translations> = {
     },
     footer: {
       quickLinks: "Quick links",
+      socialmedia: "Social Media",
       about: "About us",
       work: "Our work",
       services: "Services",
       contact: "Contact",
+      instagram: "Instagram",
+      TLH: "Made by TLH Dev",
       copyright: "© 2025 Renovation Ideas. All rights reserved.",
     },
   },
@@ -300,12 +307,14 @@ export const translations: Record<Language, Translations> = {
     },
     footer: {
       quickLinks: "Enlaces rápidos",
+      socialmedia: "Redes sociales",
       about: "Sobre nosotros",
       work: "Nuestro trabajo",
       services: "Servicios",
       contact: "Contacto",
+      instagram: "Instagram",
+      TLH: "Hecho por TLH Dev",
       copyright: "© 2025 Renovation Ideas. Todos los derechos reservados.",
     },
   },
 };
-
