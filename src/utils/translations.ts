@@ -77,6 +77,13 @@ export interface Translations {
   contact: {
     title: string;
     button: string;
+    addressLabel: string;
+    contactLabel: string;
+    phonePrefix: string;
+    emailLabel: string;
+    phoneLabel: string;
+    socialLabel: string;
+    getInTouch: string;
   };
   footer: {
     quickLinks: string;
@@ -88,6 +95,10 @@ export interface Translations {
     instagram: string;
     TLH: string;
     copyright: string;
+    contactInfo: string;
+    address: string;
+    email: string;
+    phone: string;
   };
 }
 
@@ -110,7 +121,7 @@ export const translations: Record<Language, Translations> = {
     about: {
       title: "About us",
       subtitle: "Home improvement specialists",
-      text: "Welcome to Renovation Ideas, your trusted home improvement experts, dedicated to transforming homes with precision and care. With years of experience building kitchens, bathrooms, garages and more, we pride ourselves on offering first-class craftsmanship and a hassle-free customer experience. Our mission is to make your vision a reality while ensuring clear communication and expert guidance at every step. Let's create a home you'll love!",
+      text: "Welcome to Renovation Ideas, a company that has been transforming homes and spaces for over a year. With more than 8 projects completed in the last year, we have established ourselves as trusted experts in home improvement. We are dedicated to transforming homes with precision and care, offering first-class craftsmanship and a hassle-free customer experience. Our mission is to make your vision a reality while ensuring clear communication and expert guidance at every step. Let's create a home you'll love!",
       stats: {
         years: "Years of experience",
         projects: "Completed projects",
@@ -177,6 +188,13 @@ export const translations: Record<Language, Translations> = {
     contact: {
       title: "Make your House a Home you love.",
       button: "Get started now",
+      addressLabel: "Address",
+      contactLabel: "Contact",
+      phonePrefix: "T:",
+      emailLabel: "Email",
+      phoneLabel: "Phone",
+      socialLabel: "Social",
+      getInTouch: "Get in Touch",
     },
     footer: {
       quickLinks: "Quick links",
@@ -188,6 +206,10 @@ export const translations: Record<Language, Translations> = {
       instagram: "Instagram",
       TLH: "Made by TLH Dev",
       copyright: "© 2025 Renovation Ideas. All rights reserved.",
+      contactInfo: "Contact Info",
+      address: "Address",
+      email: "Email",
+      phone: "Phone",
     },
   },
   es: {
@@ -208,7 +230,7 @@ export const translations: Record<Language, Translations> = {
     about: {
       title: "Sobre nosotros",
       subtitle: "Especialistas en mejoras del hogar",
-      text: "Bienvenido a Renovation Ideas, tus expertos en mejoras del hogar de confianza, dedicados a transformar hogares con precisión y cuidado. Con años de experiencia construyendo cocinas, baños, garajes y más, nos enorgullecemos de ofrecer artesanía de primera calidad y una experiencia de cliente sin complicaciones. Nuestra misión es hacer realidad tu visión mientras garantizamos una comunicación clara y orientación experta en cada paso. ¡Creemos un hogar que amarás!",
+      text: "Bienvenido a Renovation Ideas, una empresa que lleva más de un año transformando hogares y espacios. Con más de 8 proyectos completados en el último año, nos hemos establecido como expertos de confianza en mejoras del hogar. Estamos dedicados a transformar hogares con precisión y cuidado, ofreciendo artesanía de primera calidad y una experiencia de cliente sin complicaciones. Nuestra misión es hacer realidad tu visión mientras garantizamos una comunicación clara y orientación experta en cada paso. ¡Creemos un hogar que amarás!",
       stats: {
         years: "Años de experiencia",
         projects: "Proyectos completados",
@@ -276,6 +298,13 @@ export const translations: Record<Language, Translations> = {
     contact: {
       title: "Haz de tu casa un hogar que ames.",
       button: "Comienza ahora",
+      addressLabel: "Dirección",
+      contactLabel: "Contacto",
+      phonePrefix: "T:",
+      emailLabel: "Correo",
+      phoneLabel: "Teléfono",
+      socialLabel: "Redes Sociales",
+      getInTouch: "Contáctanos",
     },
     footer: {
       quickLinks: "Enlaces rápidos",
@@ -287,6 +316,10 @@ export const translations: Record<Language, Translations> = {
       instagram: "Instagram",
       TLH: "Hecho por TLH Dev",
       copyright: "© 2025 Renovation Ideas. Todos los derechos reservados.",
+      contactInfo: "Información de Contacto",
+      address: "Dirección",
+      email: "Correo",
+      phone: "Teléfono",
     },
   },
 };

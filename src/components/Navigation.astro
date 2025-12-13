@@ -36,14 +36,6 @@ const whatsappUrlEs = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent
     </ul>
     <div class="nav-actions">
       <LanguageToggle />
-      <a
-        href={whatsappUrlEn}
-        target="_blank"
-        class="cta-button"
-        data-i18n="nav.contactButton"
-        data-whatsapp-en={whatsappUrlEn}
-        data-whatsapp-es={whatsappUrlEs}>Contact</a
-      >
     </div>
     <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
       <span></span>
@@ -128,7 +120,7 @@ const whatsappUrlEs = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent
     left: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(90deg, #5d2e8c, #e0408f, #ff8c42);
+    background: linear-gradient(90deg, #1e3a8a, #2563eb, #3b82f6);
     transition: width 0.3s;
   }
 
@@ -141,7 +133,7 @@ const whatsappUrlEs = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent
   }
 
   .cta-button {
-    background: linear-gradient(135deg, #5d2e8c 0%, #e0408f 50%, #ff8c42 100%);
+    background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #3b82f6 100%);
     color: white;
     padding: 0.5rem 1.25rem;
     border-radius: 8px;
@@ -154,7 +146,7 @@ const whatsappUrlEs = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent
 
   .cta-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(93, 46, 140, 0.3);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   }
 
   .nav-actions {
@@ -240,7 +232,7 @@ const whatsappUrlEs = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent
     }
 
     .nav-links a:hover {
-      color: #5d2e8c;
+      color: #1e3a8a;
     }
 
     .nav-actions {

@@ -16,6 +16,28 @@ const heroImagePath = "/hero-bg.jpg"; // Cambia esto por la ruta de tu imagen en
     )
   }
   <div class="hero-gradient"></div>
+  
+  <!-- Rotating Wheel -->
+  <div class="hero-wheel">
+    <svg class="wheel-svg" viewBox="0 0 300 300">
+      <defs>
+        <path id="circle-path" d="M 150,150 m -120,0 a 120,120 0 1,1 240,0 a 120,120 0 1,1 -240,0" />
+      </defs>
+      <text class="wheel-text" fill="white" font-size="14" font-weight="600" letter-spacing="2">
+        <textPath href="#circle-path" startOffset="0%">
+          RENOVATION IDEAS • TRANSFORMING SPACES • QUALITY CRAFTSMANSHIP •
+        </textPath>
+      </text>
+    </svg>
+    <div class="wheel-icon">
+      <svg viewBox="0 0 60 60" fill="white">
+        <rect x="10" y="15" width="30" height="8" rx="2" />
+        <rect x="15" y="26" width="25" height="8" rx="2" />
+        <rect x="5" y="37" width="40" height="8" rx="2" />
+      </svg>
+    </div>
+  </div>
+  
   <div class="hero-content">
     <h1 class="hero-title" data-fade-in data-i18n="hero.title">
       Transform your ideas into extraordinary spaces
@@ -37,7 +59,7 @@ const heroImagePath = "/hero-bg.jpg"; // Cambia esto por la ruta de tu imagen en
     text-align: left;
     padding: 0;
     overflow: hidden;
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
   }
 
   .hero-background-image {
@@ -63,9 +85,9 @@ const heroImagePath = "/hero-bg.jpg"; // Cambia esto por la ruta de tu imagen en
     bottom: 0;
     background: linear-gradient(
       135deg,
-      rgba(93, 46, 140, 0.3) 0%,
-      rgba(224, 64, 143, 0.3) 50%,
-      rgba(255, 140, 66, 0.3) 100%
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(74, 74, 74, 0.3) 50%,
+      rgba(128, 128, 128, 0.3) 100%
     );
     opacity: 0.6;
     z-index: 1;
@@ -91,7 +113,8 @@ const heroImagePath = "/hero-bg.jpg"; // Cambia esto por la ruta de tu imagen en
   .hero-content {
     position: relative;
     z-index: 2;
-    max-width: 600px;
+    max-width: 50%;
+    width: 100%;
     margin: 0;
     padding: 0 3rem;
     padding-bottom: 2rem;
@@ -136,7 +159,7 @@ const heroImagePath = "/hero-bg.jpg"; // Cambia esto por la ruta de tu imagen en
 
   .hero-button {
     display: inline-block;
-    background: linear-gradient(135deg, #5d2e8c 0%, #e0408f 50%, #ff8c42 100%);
+    background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #3b82f6 100%);
     color: white;
     padding: 1.2rem 3rem;
     border-radius: 50px;
@@ -163,15 +186,79 @@ const heroImagePath = "/hero-bg.jpg"; // Cambia esto por la ruta de tu imagen en
     box-shadow: 0 15px 35px rgba(93, 46, 140, 0.4);
   }
 
+  .hero-wheel {
+    position: absolute;
+    top: 6rem;
+    left: 3rem;
+    z-index: 2;
+    width: 180px;
+    height: 180px;
+    opacity: 0.9;
+    animation: rotate 20s linear infinite;
+  }
+
+  .wheel-svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .wheel-text {
+    fill: white;
+    font-family: inherit;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .wheel-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .hero-content {
+      max-width: 60%;
+    }
+
+    .hero-wheel {
+      top: 5rem;
+      left: 2rem;
+      width: 150px;
+      height: 150px;
+    }
+
+    .wheel-icon {
+      width: 35px;
+      height: 35px;
+    }
+  }
+
   @media (max-width: 768px) {
     .hero {
       min-height: 90vh;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
     }
 
     .hero-content {
       max-width: 100%;
       padding: 0 2rem;
-      padding-bottom: 5rem;
+      padding-bottom: 2rem;
       margin-bottom: 1rem;
     }
 
@@ -181,6 +268,23 @@ const heroImagePath = "/hero-bg.jpg"; // Cambia esto por la ruta de tu imagen en
 
     .hero-subtitle {
       font-size: clamp(1rem, 3vw, 1.2rem);
+    }
+
+    .hero-wheel {
+      top: 4rem;
+      left: 50%;
+      margin-left: -60px;
+      width: 120px;
+      height: 120px;
+    }
+
+    .wheel-icon {
+      width: 30px;
+      height: 30px;
+    }
+
+    .wheel-text {
+      font-size: 10px;
     }
   }
 </style>

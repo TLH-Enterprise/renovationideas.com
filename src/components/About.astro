@@ -11,23 +11,17 @@
       Home improvement specialists
     </h3>
     <p class="about-text" data-scroll-fade data-i18n="about.text">
-      Welcome to Renovation Ideas, your trusted home improvement experts,
-      dedicated to transforming homes with precision and care. With years of
-      experience building kitchens, bathrooms, garages and more, we pride
-      ourselves on offering first-class craftsmanship and a hassle-free customer
-      experience. Our mission is to make your vision a reality while ensuring
-      clear communication and expert guidance at every step. Let's create a home
-      you'll love!
+      Welcome to Renovation Ideas, a company that has been transforming homes and spaces for over a year. With more than 8 projects completed in the last year, we have established ourselves as trusted experts in home improvement. We are dedicated to transforming homes with precision and care, offering first-class craftsmanship and a hassle-free customer experience. Our mission is to make your vision a reality while ensuring clear communication and expert guidance at every step. Let's create a home you'll love!
     </p>
     <div class="stats" data-scroll-fade>
-      <div class="stat-item" data-stat="15">
+      <div class="stat-item" data-stat="1">
         <div class="stat-number">0</div>
         <div class="stat-label" data-i18n="about.stats.years">
           Years of experience
         </div>
       </div>
-      <div class="stat-item" data-stat="250">
-        <div class="stat-number">0</div>
+      <div class="stat-item" data-stat="8">
+        <div class="stat-number">0+</div>
         <div class="stat-label" data-i18n="about.stats.projects">
           Completed projects
         </div>
@@ -66,7 +60,7 @@
     font-weight: 700;
     text-align: center;
     margin-bottom: 1rem;
-    background: linear-gradient(135deg, #5d2e8c 0%, #e0408f 50%, #ff8c42 100%);
+    background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #3b82f6 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -122,13 +116,13 @@
 
   .stat-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(93, 46, 140, 0.15);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
   }
 
   .stat-number {
     font-size: 3.5rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #5d2e8c 0%, #e0408f 50%, #ff8c42 100%);
+    background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #3b82f6 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -189,7 +183,8 @@
             ".stat-number"
           ) as HTMLElement;
           if (numberElement) {
-            const suffix = numberElement.textContent?.includes("%") ? "%" : "";
+            const originalText = numberElement.textContent || "";
+            const suffix = originalText.includes("%") ? "%" : originalText.includes("+") ? "+" : "";
             animateCounter(numberElement, targetValue, suffix);
           }
         }

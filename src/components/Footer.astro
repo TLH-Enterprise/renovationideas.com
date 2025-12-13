@@ -6,6 +6,12 @@ const whatsappMessageEs =
   "Hola, me interesa conocer más sobre sus servicios de renovación.";
 const whatsappUrlEn = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessageEn)}`;
 const whatsappUrlEs = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessageEs)}`;
+
+// Contact information
+const contactAddress = "301 S Jupiter rd, Allen, TX";
+const contactPhone = "+14693065031";
+const contactEmail = "renovationsideas23@gmail.com";
+const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(contactAddress)}`;
 ---
 
 <footer class="footer">
@@ -47,7 +53,7 @@ const whatsappUrlEs = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent
         </ul>
       </div>
 
-      <!-- Right Column: Social Media -->
+      <!-- Third Column: Social Media -->
       <div class="footer-section">
         <h4 data-i18n="footer.socialmedia">Social Media</h4>
         <ul class="footer-social">
@@ -64,6 +70,27 @@ const whatsappUrlEs = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent
               </svg>
               <span data-i18n="footer.instagram">Instagram</span>
             </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Fourth Column: Contact Info -->
+      <div class="footer-section">
+        <h4 data-i18n="footer.contactInfo">Contact Info</h4>
+        <ul class="footer-contact">
+          <li>
+            <span class="footer-contact-label" data-i18n="footer.address">Address:</span>
+            <a href={mapsUrl} target="_blank" rel="noopener noreferrer" class="footer-contact-link">
+              {contactAddress}
+            </a>
+          </li>
+          <li>
+            <span class="footer-contact-label" data-i18n="footer.email">Email:</span>
+            <a href={`mailto:${contactEmail}`} class="footer-contact-link">{contactEmail}</a>
+          </li>
+          <li>
+            <span class="footer-contact-label" data-i18n="footer.phone">Phone:</span>
+            <a href={`tel:${contactPhone}`} class="footer-contact-link">{contactPhone}</a>
           </li>
         </ul>
       </div>
@@ -84,11 +111,11 @@ const whatsappUrlEs = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent
             rel="noopener noreferrer"
             class="tlh-link"
           >
-            TLH
+            T L H
             <svg
               class="heart-icon"
               viewBox="0 0 24 24"
-              fill="currentColor"
+              fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
@@ -105,7 +132,7 @@ const whatsappUrlEs = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent
 <style>
   .footer {
     background: #f8f9fa;
-    color: #1a1a2e;
+    color: #1a1a1a;
     padding: 2.5rem 0 1.5rem;
   }
 
@@ -117,7 +144,7 @@ const whatsappUrlEs = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent
 
   .footer-content {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
     gap: 2.5rem;
     margin-bottom: 1.5rem;
   }
@@ -153,12 +180,12 @@ const whatsappUrlEs = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent
   .footer-logo-line2 {
     font-size: 1.25rem;
     font-weight: 700;
-    color: #1a1a2e;
+    color: #1a1a1a;
   }
 
   .footer-cta-button {
     display: inline-block;
-    background: #1a1a2e;
+    background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #3b82f6 100%);
     color: white;
     padding: 0.7rem 1.5rem;
     border-radius: 6px;
@@ -170,15 +197,15 @@ const whatsappUrlEs = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent
   }
 
   .footer-cta-button:hover {
-    background: #2d2d44;
+    background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 50%, #2563eb 100%);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(26, 26, 46, 0.2);
+    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.4);
   }
 
   .footer-section h4 {
     font-size: 1rem;
     font-weight: 700;
-    color: #1a1a2e;
+    color: #1a1a1a;
     margin-bottom: 1rem;
   }
 
@@ -199,7 +226,7 @@ const whatsappUrlEs = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent
   }
 
   .footer-links a:hover {
-    color: #1a1a2e;
+    color: #1a1a1a;
   }
 
   .footer-social {
@@ -222,13 +249,52 @@ const whatsappUrlEs = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent
   }
 
   .social-link:hover {
-    color: #1a1a2e;
+    color: #1a1a1a;
   }
 
   .social-icon {
     width: 18px;
     height: 18px;
     flex-shrink: 0;
+  }
+
+  .footer-contact {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .footer-contact li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .footer-contact-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #6c757d;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .footer-contact-value,
+  .footer-contact-link {
+    font-size: 0.875rem;
+    color: #6c757d;
+    line-height: 1.5;
+  }
+
+  .footer-contact-link {
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .footer-contact-link:hover {
+    color: #1a1a1a;
   }
 
   .footer-copyright {
@@ -262,14 +328,14 @@ const whatsappUrlEs = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent
     display: inline-flex;
     align-items: center;
     gap: 0.25rem;
-    color: #6c757d;
+    color: #5d2e8c;
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease;
   }
 
   .tlh-link:hover {
-    color: #5d2e8c;
+    color: #7c3aed;
   }
 
   .heart-icon {
@@ -281,10 +347,17 @@ const whatsappUrlEs = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent
 
   .tlh-link:hover .heart-icon {
     transform: scale(1.2);
-    fill: #e0408f;
+    fill: #7c3aed;
   }
 
-  @media (max-width: 950px) {
+  @media (max-width: 1024px) {
+    .footer-content {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+  }
+
+  @media (max-width: 768px) {
     .footer-content {
       grid-template-columns: 1fr;
       gap: 2rem;
