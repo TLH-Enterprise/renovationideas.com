@@ -121,7 +121,7 @@ export const translations: Record<Language, Translations> = {
     about: {
       title: "About us",
       subtitle: "Home improvement specialists",
-      text: "Welcome to Renovation Ideas, a company that has been transforming homes and spaces for over a year. With more than 8 projects completed in the last year, we have established ourselves as trusted experts in home improvement. We are dedicated to transforming homes with precision and care, offering first-class craftsmanship and a hassle-free customer experience. Our mission is to make your vision a reality while ensuring clear communication and expert guidance at every step. Let's create a home you'll love!",
+      text: "Welcome to Renovation Ideas, a company that has been transforming homes and spaces for over 10 years. With more than 80 projects completed, we have established ourselves as trusted experts in home improvement. We are dedicated to transforming homes with precision and care, offering first-class craftsmanship and a hassle-free customer experience. Our mission is to make your vision a reality while ensuring clear communication and expert guidance at every step. Let's create a home you'll love!",
       stats: {
         years: "Years of experience",
         projects: "Completed projects",
@@ -230,7 +230,7 @@ export const translations: Record<Language, Translations> = {
     about: {
       title: "Sobre nosotros",
       subtitle: "Especialistas en mejoras del hogar",
-      text: "Bienvenido a Renovation Ideas, una empresa que lleva más de un año transformando hogares y espacios. Con más de 8 proyectos completados en el último año, nos hemos establecido como expertos de confianza en mejoras del hogar. Estamos dedicados a transformar hogares con precisión y cuidado, ofreciendo artesanía de primera calidad y una experiencia de cliente sin complicaciones. Nuestra misión es hacer realidad tu visión mientras garantizamos una comunicación clara y orientación experta en cada paso. ¡Creemos un hogar que amarás!",
+      text: "Bienvenido a Renovation Ideas, una empresa que lleva más de 10 años transformando hogares y espacios. Con más de 80 proyectos completados, nos hemos establecido como expertos de confianza en mejoras del hogar. Estamos dedicados a transformar hogares con precisión y cuidado, ofreciendo artesanía de primera calidad y una experiencia de cliente sin complicaciones. Nuestra misión es hacer realidad tu visión mientras garantizamos una comunicación clara y orientación experta en cada paso. ¡Creemos un hogar que amarás!",
       stats: {
         years: "Años de experiencia",
         projects: "Proyectos completados",
