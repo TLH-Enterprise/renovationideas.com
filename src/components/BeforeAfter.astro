@@ -14,21 +14,6 @@
       Drag the slider to see the incredible results of our professional renovations.
     </p>
 
-    <!-- Project Tabs -->
-    <div class="tabs-container" data-scroll-fade>
-      <button class="tab-btn active" data-index="0">
-        <span data-i18n="beforeAfter.project">Project</span> 1
-      </button>
-      <button class="tab-btn" data-index="1">
-        <span data-i18n="beforeAfter.project">Project</span> 2
-      </button>
-      <button class="tab-btn" data-index="2">
-        <span data-i18n="beforeAfter.project">Project</span> 3
-      </button>
-      <button class="tab-btn" data-index="3">
-        <span data-i18n="beforeAfter.project">Project</span> 4
-      </button>
-    </div>
 
     <!-- Comparison Slider Carousel Wrapper -->
     <div class="slider-wrapper" data-scroll-fade>
@@ -497,7 +482,7 @@
     const dotsContainer = document.getElementById("dots-container");
     const prevBtn = document.getElementById("prev-btn");
     const nextBtn = document.getElementById("next-btn");
-    const tabBtns = document.querySelectorAll(".tab-btn");
+
 
     // Array of project pairs mapping (1 to 4)
     const projectPairs = [
@@ -566,14 +551,7 @@
         }
       });
 
-      // Update tabs active state
-      tabBtns.forEach((btn, idx) => {
-        if (idx === currentIndex) {
-          btn.classList.add("active");
-        } else {
-          btn.classList.remove("active");
-        }
-      });
+
 
       if (slider && imgAfter && imgBefore && rangeInput) {
         slider.classList.add("transitioning");
@@ -591,13 +569,7 @@
       }
     }
 
-    // Tab buttons event listener
-    tabBtns.forEach((btn, idx) => {
-      btn.addEventListener("click", () => {
-        goToSlide(idx);
-        resetAutoplay();
-      });
-    });
+
 
     // Prev / Next button listeners
     prevBtn?.addEventListener("click", () => {
