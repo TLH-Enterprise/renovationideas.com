@@ -100,6 +100,14 @@ export interface Translations {
     email: string;
     phone: string;
   };
+  beforeAfter: {
+    title: string;
+    subtitle: string;
+    description: string;
+    beforeBadge: string;
+    afterBadge: string;
+    project: string;
+  };
 }
 
 export const translations: Record<Language, Translations> = {
@@ -211,6 +219,14 @@ export const translations: Record<Language, Translations> = {
       email: "Email",
       phone: "Phone",
     },
+    beforeAfter: {
+      title: "Before & After",
+      subtitle: "Watch the transformation",
+      description: "Drag the slider to see the incredible results of our professional renovations.",
+      beforeBadge: "Before",
+      afterBadge: "After",
+      project: "Project",
+    },
   },
   es: {
     nav: {
@@ -320,6 +336,14 @@ export const translations: Record<Language, Translations> = {
       address: "Dirección",
       email: "Correo",
       phone: "Teléfono",
+    },
+    beforeAfter: {
+      title: "Antes y Después",
+      subtitle: "Mira la transformación",
+      description: "Arrastra el deslizador para ver los increíbles resultados de nuestras renovaciones profesionales.",
+      beforeBadge: "Antes",
+      afterBadge: "Después",
+      project: "Proyecto",
     },
   },
 };

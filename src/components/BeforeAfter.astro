@@ -1,0 +1,679 @@
+---
+// Before & After Gallery Component
+---
+
+<section id="before-after" class="before-after">
+  <div class="container">
+    <h2 class="section-title" data-scroll-fade data-i18n="beforeAfter.title">
+      Before & After
+    </h2>
+    <h3 class="section-subtitle" data-scroll-fade data-i18n="beforeAfter.subtitle">
+      Watch the transformation
+    </h3>
+    <p class="before-after-intro" data-scroll-fade data-i18n="beforeAfter.description">
+      Drag the slider to see the incredible results of our professional renovations.
+    </p>
+
+    <!-- Project Tabs -->
+    <div class="tabs-container" data-scroll-fade>
+      <button class="tab-btn active" data-index="0">
+        <span data-i18n="beforeAfter.project">Project</span> 1
+      </button>
+      <button class="tab-btn" data-index="1">
+        <span data-i18n="beforeAfter.project">Project</span> 2
+      </button>
+      <button class="tab-btn" data-index="2">
+        <span data-i18n="beforeAfter.project">Project</span> 3
+      </button>
+      <button class="tab-btn" data-index="3">
+        <span data-i18n="beforeAfter.project">Project</span> 4
+      </button>
+    </div>
+
+    <!-- Comparison Slider Carousel Wrapper -->
+    <div class="slider-wrapper" data-scroll-fade>
+      <!-- Navigation Left Arrow -->
+      <button class="nav-btn prev-btn" id="prev-btn" aria-label="Previous renovation">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+
+      <div class="before-after-slider" id="ba-slider" style="--position: 50%;">
+        <!-- After Image (Background) -->
+        <img
+          src="/despues/1.jpg"
+          alt="After Renovation"
+          class="image-after"
+          id="img-after"
+          draggable="false"
+        />
+        
+        <!-- Before Image (Overlay clipped by custom --position property) -->
+        <img
+          src="/antes/1.jpg"
+          alt="Before Renovation"
+          class="image-before"
+          id="img-before"
+          draggable="false"
+        />
+
+        <!-- Floating Badges -->
+        <div class="badge badge-before" data-i18n="beforeAfter.beforeBadge">Before</div>
+        <div class="badge badge-after" data-i18n="beforeAfter.afterBadge">After</div>
+
+        <!-- Slider Line & Handle -->
+        <div class="slider-line"></div>
+        <div class="slider-button">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="8 17 3 12 8 7"></polyline>
+            <polyline points="16 17 21 12 16 7"></polyline>
+          </svg>
+        </div>
+
+        <!-- Hidden input covering the whole slider to capture drag events -->
+        <input
+          type="range"
+          min="0"
+          max="100"
+          value="50"
+          class="slider-input"
+          id="ba-range"
+          aria-label="Before and after comparison slider"
+        />
+      </div>
+
+      <!-- Navigation Right Arrow -->
+      <button class="nav-btn next-btn" id="next-btn" aria-label="Next renovation">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Dynamic Pagination Dots -->
+    <div class="dots-container" id="dots-container" data-scroll-fade></div>
+  </div>
+</section>
+
+<style>
+  .before-after {
+    background: #ffffff;
+    padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #3b82f6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .section-subtitle {
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #64748b;
+    font-weight: 400;
+  }
+
+  .before-after-intro {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #64748b;
+    font-size: 1.15rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Fade transitions for elements matching rest of the landing page */
+  [data-scroll-fade] {
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
+  }
+
+  [data-scroll-fade].visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Project Tabs */
+  .tabs-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .tab-btn {
+    background: #f1f5f9;
+    color: #475569;
+    border: none;
+    padding: 0.8rem 2.2rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  }
+
+  .tab-btn:hover {
+    background: #e2e8f0;
+    transform: translateY(-2px);
+  }
+
+  .tab-btn.active {
+    background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #3b82f6 100%);
+    color: #ffffff;
+    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+  }
+
+  /* Slider frame and wrapper */
+  .slider-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .before-after-slider {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/10;
+    overflow: hidden;
+    border-radius: 24px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    background-color: #f1f5f9;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    flex-grow: 1;
+  }
+
+  /* Smooth scaling/opacity transition when swapping projects */
+  .before-after-slider.transitioning {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+
+  .image-after {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+
+  .image-before {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    user-select: none;
+    -webkit-user-drag: none;
+    clip-path: polygon(0 0, var(--position) 0, var(--position) 100%, 0 100%);
+  }
+
+  /* Floating language-aware Badges */
+  .badge {
+    position: absolute;
+    top: 1.5rem;
+    padding: 0.4rem 1rem;
+    border-radius: 6px;
+    color: #1e293b;
+    background-color: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    pointer-events: none;
+    z-index: 5;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(10px);
+    transition: opacity 0.3s ease;
+  }
+
+  .badge-before {
+    left: 1.5rem;
+  }
+
+  .badge-after {
+    right: 1.5rem;
+  }
+
+  /* Fade out badges if slider handle overlaps them */
+  .slider-wrapper.dragging-before .badge-before {
+    opacity: 0;
+  }
+
+  .slider-wrapper.dragging-after .badge-after {
+    opacity: 0;
+  }
+
+  /* Slider separator line */
+  .slider-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: var(--position);
+    width: 4px;
+    background: #ffffff;
+    transform: translateX(-50%);
+    pointer-events: none;
+    z-index: 8;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Slider circular handle */
+  .slider-button {
+    position: absolute;
+    top: 50%;
+    left: var(--position);
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    z-index: 9;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+    border: 2px solid #e2e8f0;
+    transition:
+      transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+      background-color 0.2s,
+      border-color 0.2s;
+  }
+
+  .before-after-slider:hover .slider-button {
+    transform: translate(-50%, -50%) scale(1.08);
+    background-color: #1e3a8a;
+    border-color: #2563eb;
+  }
+
+  .slider-button svg {
+    width: 18px;
+    height: 18px;
+    stroke: #1e3a8a;
+    transition: stroke 0.2s ease;
+  }
+
+  .before-after-slider:hover .slider-button svg {
+    stroke: #ffffff;
+  }
+
+  /* Navigation Buttons */
+  .nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 15;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    color: #1e3a8a;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(8px);
+  }
+
+  .nav-btn:hover {
+    background: #1e3a8a;
+    color: #ffffff;
+    border-color: #2563eb;
+    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+    transform: translateY(-50%) scale(1.08);
+  }
+
+  .prev-btn {
+    left: -24px;
+  }
+
+  .next-btn {
+    right: -24px;
+  }
+
+  .nav-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Dots container */
+  .dots-container {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-top: 2rem;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #cbd5e1;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    padding: 0;
+  }
+
+  .dot.active {
+    background-color: #1e3a8a;
+    transform: scale(1.2);
+    width: 24px;
+    border-radius: 5px;
+  }
+
+  /* Overlay transparent input to handle dragging smoothly */
+  .slider-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: ew-resize;
+    z-index: 10;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  @media (max-width: 768px) {
+    .before-after {
+      padding: 4rem 0;
+    }
+
+    .tabs-container {
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .tab-btn {
+      padding: 0.6rem 1.2rem;
+      font-size: 0.9rem;
+    }
+
+    .slider-button {
+      width: 32px;
+      height: 32px;
+    }
+
+    .slider-button svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .badge {
+      top: 1rem;
+      padding: 0.3rem 0.7rem;
+      font-size: 0.65rem;
+    }
+
+    .badge-before {
+      left: 1rem;
+    }
+
+    .badge-after {
+      right: 1rem;
+    }
+
+    .prev-btn {
+      left: 10px;
+      width: 36px;
+      height: 36px;
+    }
+
+    .next-btn {
+      right: 10px;
+      width: 36px;
+      height: 36px;
+    }
+
+    .nav-btn svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+</style>
+
+<script>
+  function initBeforeAfterSlider() {
+    const slider = document.getElementById("ba-slider");
+    const rangeInput = document.getElementById("ba-range") as HTMLInputElement | null;
+    const imgAfter = document.getElementById("img-after") as HTMLImageElement | null;
+    const imgBefore = document.getElementById("img-before") as HTMLImageElement | null;
+    const sliderWrapper = document.querySelector(".slider-wrapper");
+    const dotsContainer = document.getElementById("dots-container");
+    const prevBtn = document.getElementById("prev-btn");
+    const nextBtn = document.getElementById("next-btn");
+    const tabBtns = document.querySelectorAll(".tab-btn");
+
+    // Array of project pairs mapping (1 to 4)
+    const projectPairs = [
+      { before: "/antes/1.jpg", after: "/despues/1.jpg" },
+      { before: "/antes/2.jpg", after: "/despues/2.jpg" },
+      { before: "/antes/3.jpg", after: "/despues/3.jpg" },
+      { before: "/antes/4.jpg", after: "/despues/4.jpg" },
+    ];
+
+    let currentIndex = 0;
+    let autoplayInterval: number | null = null;
+    let isInteracting = false;
+
+    // Slider inputs drag and slide event
+    if (rangeInput && slider) {
+      rangeInput.addEventListener("input", (e) => {
+        const value = (e.target as HTMLInputElement).value;
+        slider.style.setProperty("--position", `${value}%`);
+
+        const val = parseInt(value);
+        if (val < 18) {
+          sliderWrapper?.classList.add("dragging-before");
+        } else if (val > 82) {
+          sliderWrapper?.classList.add("dragging-after");
+        } else {
+          sliderWrapper?.classList.remove("dragging-before", "dragging-after");
+        }
+
+        // Reset autoplay timer when interacting
+        resetAutoplay();
+      });
+    }
+
+    // Dynamic Dot Generation
+    function renderDots() {
+      if (!dotsContainer) return;
+      dotsContainer.innerHTML = "";
+      
+      projectPairs.forEach((_, index) => {
+        const dot = document.createElement("button");
+        dot.classList.add("dot");
+        if (index === currentIndex) {
+          dot.classList.add("active");
+        }
+        dot.setAttribute("aria-label", `Ir al proyecto ${index + 1}`);
+        dot.addEventListener("click", () => {
+          goToSlide(index);
+          resetAutoplay();
+        });
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    // Navigate to slide
+    function goToSlide(index: number) {
+      if (index < 0 || index >= projectPairs.length) return;
+      currentIndex = index;
+
+      // Update dot active state
+      const dots = dotsContainer?.querySelectorAll(".dot");
+      dots?.forEach((dot, idx) => {
+        if (idx === currentIndex) {
+          dot.classList.add("active");
+        } else {
+          dot.classList.remove("active");
+        }
+      });
+
+      // Update tabs active state
+      tabBtns.forEach((btn, idx) => {
+        if (idx === currentIndex) {
+          btn.classList.add("active");
+        } else {
+          btn.classList.remove("active");
+        }
+      });
+
+      if (slider && imgAfter && imgBefore && rangeInput) {
+        slider.classList.add("transitioning");
+
+        setTimeout(() => {
+          imgAfter.src = projectPairs[currentIndex].after;
+          imgBefore.src = projectPairs[currentIndex].before;
+
+          rangeInput.value = "50";
+          slider.style.setProperty("--position", "50%");
+          sliderWrapper?.classList.remove("dragging-before", "dragging-after");
+
+          slider.classList.remove("transitioning");
+        }, 250);
+      }
+    }
+
+    // Tab buttons event listener
+    tabBtns.forEach((btn, idx) => {
+      btn.addEventListener("click", () => {
+        goToSlide(idx);
+        resetAutoplay();
+      });
+    });
+
+    // Prev / Next button listeners
+    prevBtn?.addEventListener("click", () => {
+      let prevIdx = currentIndex - 1;
+      if (prevIdx < 0) prevIdx = projectPairs.length - 1;
+      goToSlide(prevIdx);
+      resetAutoplay();
+    });
+
+    nextBtn?.addEventListener("click", () => {
+      nextSlide();
+      resetAutoplay();
+    });
+
+    function nextSlide() {
+      let nextIdx = currentIndex + 1;
+      if (nextIdx >= projectPairs.length) nextIdx = 0;
+      goToSlide(nextIdx);
+    }
+
+    // Fallbacks if user hasn't renamed files yet, so they see our beautiful AI samples
+    if (imgBefore) {
+      imgBefore.addEventListener("error", () => {
+        if (imgBefore.src.includes("/antes/")) {
+          imgBefore.src = "/gallery_kitchen_before.png";
+        }
+      });
+    }
+    if (imgAfter) {
+      imgAfter.addEventListener("error", () => {
+        if (imgAfter.src.includes("/despues/")) {
+          imgAfter.src = "/gallery_kitchen_after.png";
+        }
+      });
+    }
+
+    // Autoplay implementation (10 seconds)
+    function startAutoplay() {
+      if (autoplayInterval) clearInterval(autoplayInterval);
+      autoplayInterval = window.setInterval(() => {
+        if (!isInteracting) {
+          nextSlide();
+        }
+      }, 10000);
+    }
+
+    function resetAutoplay() {
+      startAutoplay();
+    }
+
+    // Pause autoplay on mouse hover / mobile touch
+    if (sliderWrapper) {
+      sliderWrapper.addEventListener("mouseenter", () => {
+        isInteracting = true;
+      });
+      sliderWrapper.addEventListener("mouseleave", () => {
+        isInteracting = false;
+        resetAutoplay();
+      });
+      sliderWrapper.addEventListener("touchstart", () => {
+        isInteracting = true;
+      }, { passive: true });
+      sliderWrapper.addEventListener("touchend", () => {
+        isInteracting = false;
+        resetAutoplay();
+      }, { passive: true });
+    }
+
+    // Run dot generation and autoplay initially
+    renderDots();
+    startAutoplay();
+  }
+
+  // Run on load
+  document.addEventListener("DOMContentLoaded", initBeforeAfterSlider);
+  if (document.readyState === "interactive" || document.readyState === "complete") {
+    initBeforeAfterSlider();
+  }
+</script>
