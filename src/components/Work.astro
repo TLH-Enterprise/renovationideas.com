@@ -35,9 +35,6 @@
           <span class="work-tag" data-i18n="work.projects.kitchen.tag"
             >Kitchen</span
           >
-          <span class="work-duration" data-i18n="work.projects.kitchen.duration"
-            >4 weeks</span
-          >
         </div>
       </div>
       <div class="work-item" data-scroll-fade>
@@ -59,10 +56,6 @@
         <div class="work-meta">
           <span class="work-tag" data-i18n="work.projects.bathroom.tag"
             >Bathroom</span
-          >
-          <span
-            class="work-duration"
-            data-i18n="work.projects.bathroom.duration">3 weeks</span
           >
         </div>
       </div>
@@ -86,10 +79,6 @@
         <div class="work-meta">
           <span class="work-tag" data-i18n="work.projects.extension.tag"
             >Extension</span
-          >
-          <span
-            class="work-duration"
-            data-i18n="work.projects.extension.duration">8 weeks</span
           >
         </div>
       </div>
@@ -163,16 +152,16 @@
     background: white;
     padding: 0;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--shadow-premium);
     overflow: hidden;
     transition:
-      transform 0.3s,
-      box-shadow 0.3s;
+      transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .work-item:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 50px rgba(93, 46, 140, 0.2);
+    box-shadow: var(--shadow-premium-hover);
   }
 
   .work-image-wrapper {
@@ -220,13 +209,6 @@
     border-radius: 20px;
     font-size: 0.9rem;
     font-weight: 500;
-  }
-
-  .work-duration {
-    color: #64748b;
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
   }
 
   @media (max-width: 768px) {

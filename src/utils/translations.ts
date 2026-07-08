@@ -35,19 +35,16 @@ export interface Translations {
         title: string;
         description: string;
         tag: string;
-        duration: string;
       };
       bathroom: {
         title: string;
         description: string;
         tag: string;
-        duration: string;
       };
       extension: {
         title: string;
         description: string;
         tag: string;
-        duration: string;
       };
     };
   };
@@ -148,21 +145,18 @@ export const translations: Record<Language, Translations> = {
           description:
             "This kitchen transformation brought modern and elegant design and improved functionality to our client's home. We installed custom cabinets, high-quality countertops and state-of-the-art appliances, creating an elegant yet practical space perfect for cooking and entertaining.",
           tag: "Kitchen",
-          duration: "4 weeks",
         },
         bathroom: {
           title: "Master bathroom renovation",
           description:
             "We transformed an outdated bathroom into a modern relaxation oasis. Includes luxury tiles, rain shower, freestanding bathtub and first-class finishes that combine elegance with functionality.",
           tag: "Bathroom",
-          duration: "3 weeks",
         },
         extension: {
           title: "Kitchen and dining room extension",
           description:
             "We expanded the living space with a bright extension that connects the kitchen to the garden. Open design with large windows, natural lighting and modern finishes that create a cozy and functional environment.",
           tag: "Extension",
-          duration: "8 weeks",
         },
       },
     },
@@ -265,21 +259,18 @@ export const translations: Record<Language, Translations> = {
           description:
             "Esta transformación de cocina trajo diseño moderno y elegante y funcionalidad mejorada al hogar de nuestro cliente. Instalamos gabinetes personalizados, encimeras de alta calidad y electrodomésticos de última generación, creando un espacio elegante pero práctico perfecto para cocinar y entretener.",
           tag: "Cocina",
-          duration: "4 semanas",
         },
         bathroom: {
           title: "Renovación de baño principal",
           description:
             "Transformamos un baño anticuado en un oasis moderno de relajación. Incluye azulejos de lujo, ducha de lluvia, bañera independiente y acabados de primera calidad que combinan elegancia con funcionalidad.",
           tag: "Baño",
-          duration: "3 semanas",
         },
         extension: {
           title: "Extensión de cocina y comedor",
           description:
             "Ampliamos el espacio de vida con una extensión luminosa que conecta la cocina con el jardín. Diseño abierto con grandes ventanales, iluminación natural y acabados modernos que crean un ambiente acogedor y funcional.",
           tag: "Extensión",
-          duration: "8 semanas",
         },
       },
     },

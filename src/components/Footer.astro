@@ -1,5 +1,5 @@
 ---
-const whatsappNumber = "1234567890";
+const whatsappNumber = "14693065031";
 const whatsappMessageEn =
   "Hello, I'm interested in learning more about your renovation services.";
 const whatsappMessageEs =
@@ -10,6 +10,7 @@ const whatsappUrlEs = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent
 // Contact information
 const contactAddress = "301 S Jupiter rd, Allen, TX";
 const contactPhone = "+14693065031";
+const contactPhoneDisplay = "(+1) 469-306-5031";
 const contactEmail = "renovationsideas23@gmail.com";
 const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(contactAddress)}`;
 ---
@@ -90,7 +91,7 @@ const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComp
           </li>
           <li>
             <span class="footer-contact-label" data-i18n="footer.phone">Phone:</span>
-            <a href={`tel:${contactPhone}`} class="footer-contact-link">{contactPhone}</a>
+            <a href={`tel:${contactPhone}`} class="footer-contact-link">{contactPhoneDisplay}</a>
           </li>
         </ul>
       </div>

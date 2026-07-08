@@ -4,6 +4,7 @@ const contactBgImage = "/contact-bg.jpg";
 // Contact information
 const contactAddress = "301 S Jupiter rd, Allen, TX";
 const contactPhone = "+14693065031";
+const contactPhoneDisplay = "(+1) 469-306-5031";
 const contactEmail = "renovationsideas23@gmail.com";
 
 // URLs for actions
@@ -45,7 +46,7 @@ const smsUrl = `sms:${contactPhone}`;
         <div class="contact-item">
           <h3 class="contact-column-title" data-i18n="contact.phoneLabel">Phone</h3>
           <a href={smsUrl} class="contact-info-link">
-            {contactPhone}
+            {contactPhoneDisplay}
           </a>
         </div>
 
