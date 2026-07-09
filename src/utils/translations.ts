@@ -104,6 +104,58 @@ export interface Translations {
     beforeBadge: string;
     afterBadge: string;
     project: string;
+    projects: {
+      kitchen: {
+        title: string;
+        category: string;
+        description: string;
+      };
+      bathroom: {
+        title: string;
+        category: string;
+        description: string;
+      };
+      extension: {
+        title: string;
+        category: string;
+        description: string;
+      };
+      exterior: {
+        title: string;
+        category: string;
+        description: string;
+      };
+      hallway: {
+        title: string;
+        category: string;
+        description: string;
+      };
+      kitchen2: {
+        title: string;
+        category: string;
+        description: string;
+      };
+      fireplace: {
+        title: string;
+        category: string;
+        description: string;
+      };
+      "living-room": {
+        title: string;
+        category: string;
+        description: string;
+      };
+      stairs: {
+        title: string;
+        category: string;
+        description: string;
+      };
+      gallery: {
+        title: string;
+        category: string;
+        description: string;
+      };
+    };
   };
 }
 
@@ -216,10 +268,62 @@ export const translations: Record<Language, Translations> = {
     beforeAfter: {
       title: "Before & After",
       subtitle: "Watch the transformation",
-      description: "Drag the slider to see the incredible results of our professional renovations.",
+      description: "Toggle between Before and After to see the transformation, and use the gallery below to explore all details of the completed work.",
       beforeBadge: "Before",
       afterBadge: "After",
       project: "Project",
+      projects: {
+        kitchen: {
+          title: "Modern Kitchen Transformation",
+          category: "Kitchen",
+          description: "A complete modern kitchen overhaul featuring bespoke cabinetry, high-end countertops, and optimized layout.",
+        },
+        bathroom: {
+          title: "Luxury Master Bathroom",
+          category: "Bathroom",
+          description: "Turned an outdated bathroom into a serene personal spa with premium tiling, rain shower, and elegant finishes.",
+        },
+        extension: {
+          title: "Open-Concept Extension",
+          category: "Extension",
+          description: "Expanded living area filled with natural light, seamlessly connecting the kitchen to the dining and garden spaces.",
+        },
+        exterior: {
+          title: "Patios & Exterior Masonry",
+          category: "Exterior",
+          description: "Enhancing outdoor aesthetics with durable, high-quality brickwork, tiling, and beautiful professional landscaping.",
+        },
+        hallway: {
+          title: "Modern Hallway Renovation",
+          category: "Hallway",
+          description: "Opening up and brightening the corridor with custom lighting, fresh painting, and durable premium flooring.",
+        },
+        kitchen2: {
+          title: "Modern Open-Concept Kitchen",
+          category: "Open Kitchen",
+          description: "Integrated design that connects the kitchen with the rest of the house, offering style and high-end utilities.",
+        },
+        fireplace: {
+          title: "Elegant Fireplace Centerpiece",
+          category: "Fireplace",
+          description: "Complete living room centerpiece renovation with custom stonework, elegant mantle, and modern fireplace integration.",
+        },
+        "living-room": {
+          title: "Spacious Living Room Overhaul",
+          category: "Living Room",
+          description: "Refurbished open-concept living area with premium wooden flooring, tailored lighting fixtures, and comfortable space optimization.",
+        },
+        stairs: {
+          title: "Staircase & Banister Renovation",
+          category: "Stairs",
+          description: "Rebuilt and modernised staircase with custom timber finishes, safety balustrades, and a spacious open feel.",
+        },
+        gallery: {
+          title: "Completed Work & Finishes",
+          category: "Gallery",
+          description: "A curation of our high-quality finishes, bespoke detailing, and completed installations across various homes.",
+        },
+      },
     },
   },
   es: {
@@ -331,10 +435,62 @@ export const translations: Record<Language, Translations> = {
     beforeAfter: {
       title: "Antes y Después",
       subtitle: "Mira la transformación",
-      description: "Arrastra el deslizador para ver los increíbles resultados de nuestras renovaciones profesionales.",
+      description: "Alterna entre Antes y Después para ver la transformación, y usa la galería de abajo para explorar todos los detalles de la obra terminada.",
       beforeBadge: "Antes",
       afterBadge: "Después",
       project: "Proyecto",
+      projects: {
+        kitchen: {
+          title: "Transformación de Cocina Moderna",
+          category: "Cocina",
+          description: "Reforma integral de cocina con gabinetes a medida, encimeras de alta calidad y una distribución optimizada.",
+        },
+        bathroom: {
+          title: "Baño Principal de Lujo",
+          category: "Baño",
+          description: "Convertimos un baño anticuado en un spa personal sereno con azulejos premium, ducha de lluvia y acabados elegantes.",
+        },
+        extension: {
+          title: "Extensión de Concepto Abierto",
+          category: "Extensión",
+          description: "Ampliación del área habitable llena de luz natural, conectando de forma fluida la cocina con el comedor y el jardín.",
+        },
+        exterior: {
+          title: "Patios y Albañilería Exterior",
+          category: "Exterior",
+          description: "Mejora de la estética exterior con albañilería duradera de alta calidad, azulejos y paisajismo profesional.",
+        },
+        hallway: {
+          title: "Renovación de Pasillo Moderno",
+          category: "Pasillo",
+          description: "Apertura y luminosidad en el pasillo con iluminación a medida, pintura fresca y suelo premium duradero.",
+        },
+        kitchen2: {
+          title: "Segunda Reforma de Cocina",
+          category: "Cocina 2",
+          description: "Reforma detallada que optimiza las áreas de preparación, almacenamiento y sintonía de materiales premium.",
+        },
+        fireplace: {
+          title: "Restauración de Chimenea y Salón",
+          category: "Chimenea",
+          description: "Renovación elegante de la zona de chimenea convirtiendo el salón en un espacio familiar acogedor.",
+        },
+        "living-room": {
+          title: "Reforma Integral de Salón",
+          category: "Salón",
+          description: "Ampliación de ventanales y rediseño espacial para maximizar la luz natural y el confort.",
+        },
+        stairs: {
+          title: "Reforma de Escaleras",
+          category: "Escaleras",
+          description: "Remodelación y modernización de escaleras con acabados de madera a medida, barandillas de seguridad y una sensación diáfana.",
+        },
+        gallery: {
+          title: "Galería de Trabajos Terminados",
+          category: "Galería",
+          description: "Una selección de nuestros acabados de alta calidad, detalles a medida e instalaciones completadas en diversos hogares.",
+        },
+      },
     },
   },
 };

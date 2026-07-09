@@ -1,5 +1,59 @@
 ---
-// Before & After Gallery Component
+// Before & After Gallery Component - Unified Multi-Image Case Studies (Option A)
+const projects = [
+  {
+    id: "kitchen",
+    images: [
+      { before: "/antes/antes-1-kitchen.jpg", after: "/despues/despues-1-kitchen.jpg" },
+      { before: "/antes/antes-2-kitchen.jpg", after: "/despues/despues-2-kitchen.jpg" },
+      { before: "/antes/antes-3-kitchen.jpg", after: "/despues/despues-3-kitchen.jpg" },
+      { before: null, after: "/despues/despues-4-kitchen.jpg" } // After-only detail image
+    ]
+  },
+  {
+    id: "kitchen2",
+    images: [
+      { before: "/antes/antes-1-cocina1.jpg", after: "/despues/despues-1-cocina1.jpg" },
+      { before: "/antes/antes-2-cocina1.jpg", after: "/despues/despues-2-cocina1.jpg" }
+    ]
+  },
+  {
+    id: "fireplace",
+    images: [
+      { before: "/antes/antes-1-chimenea.jpg", after: "/despues/despues-1-chimenea.jpg" }
+    ]
+  },
+  {
+    id: "living-room",
+    images: [
+      { before: "/antes/antes-1-sala.jpg", after: "/despues/despues-1-sala.jpg" }
+    ]
+  },
+  {
+    id: "stairs",
+    images: [
+      { before: "/antes/antes-1-escaleras.jpg", after: "/despues/despues-1-escaleras.jpg" },
+      { before: "/antes/antes-2-escaleras.jpg", after: "/despues/despues-2-escaleras.jpg" }
+    ]
+  },
+  {
+    id: "hallway",
+    images: [
+      { before: "/antes/antes-1-pasillo.jpg", after: "/despues/despues-1-pasillo.jpg" },
+      { before: "/antes/antes-2-pasillo.jpg", after: "/despues/despues-2-pasillo.jpg" },
+      { before: "/antes/antes-3-pasillo.jpg", after: "/despues/despues-3-pasillo.jpg" }
+    ]
+  },
+  {
+    id: "gallery",
+    images: [
+      { before: null, after: "/despues/despues-1-otros.jpg" },
+      { before: null, after: "/despues/despues-2-otros.jpg" },
+      { before: null, after: "/despues/despues-3-otros.jpg" },
+      { before: null, after: "/despues/despues-4-otros.jpg" }
+    ]
+  }
+];
 ---
 
 <section id="before-after" class="before-after">
@@ -11,94 +65,117 @@
       Watch the transformation
     </h3>
     <p class="before-after-intro" data-scroll-fade data-i18n="beforeAfter.description">
-      Drag the slider to see the incredible results of our professional renovations.
+      Toggle between Before and After to see the transformation, and use the gallery below to explore all details of the completed work.
     </p>
 
-
-    <!-- Comparison Slider Carousel Wrapper -->
-    <div class="slider-wrapper" data-scroll-fade>
-      <!-- Navigation Left Arrow -->
-      <button class="nav-btn prev-btn" id="prev-btn" aria-label="Previous renovation">
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+    <!-- Project Selector Tabs -->
+    <div class="tabs-container" data-scroll-fade>
+      {projects.map((project, index) => (
+        <button 
+          class={`tab-btn ${index === 0 ? 'active' : ''}`} 
+          data-target={project.id}
+          data-i18n={`beforeAfter.projects.${project.id}.category`}
         >
-          <polyline points="15 18 9 12 15 6"></polyline>
-        </svg>
-      </button>
-
-      <div class="before-after-slider" id="ba-slider" style="--position: 50%;">
-        <!-- After Image (Background) -->
-        <img
-          src="/despues/1.jpg"
-          alt="After Renovation"
-          class="image-after"
-          id="img-after"
-          draggable="false"
-        />
-        
-        <!-- Before Image (Overlay clipped by custom --position property) -->
-        <img
-          src="/antes/1.jpg"
-          alt="Before Renovation"
-          class="image-before"
-          id="img-before"
-          draggable="false"
-        />
-
-        <!-- Floating Badges -->
-        <div class="badge badge-before" data-i18n="beforeAfter.beforeBadge">Before</div>
-        <div class="badge badge-after" data-i18n="beforeAfter.afterBadge">After</div>
-
-        <!-- Slider Line & Handle -->
-        <div class="slider-line"></div>
-        <div class="slider-button">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <polyline points="8 17 3 12 8 7"></polyline>
-            <polyline points="16 17 21 12 16 7"></polyline>
-          </svg>
-        </div>
-
-        <!-- Hidden input covering the whole slider to capture drag events -->
-        <input
-          type="range"
-          min="0"
-          max="100"
-          value="50"
-          class="slider-input"
-          id="ba-range"
-          aria-label="Before and after comparison slider"
-        />
-      </div>
-
-      <!-- Navigation Right Arrow -->
-      <button class="nav-btn next-btn" id="next-btn" aria-label="Next renovation">
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <polyline points="9 18 15 12 9 6"></polyline>
-        </svg>
-      </button>
+          {project.id.charAt(0).toUpperCase() + project.id.slice(1)}
+        </button>
+      ))}
     </div>
 
-    <!-- Dynamic Pagination Dots -->
-    <div class="dots-container" id="dots-container" data-scroll-fade></div>
+    <!-- Project Showcases Grid Wrapper -->
+    <div class="showcases-wrapper" data-scroll-fade>
+      {projects.map((project, index) => (
+        <div 
+          class={`project-showcase ${index === 0 ? 'active' : ''}`} 
+          id={`project-${project.id}`}
+          data-project={project.id}
+        >
+          <!-- Left: Interactive Image Viewer -->
+          <div class="viewer-container">
+            <div class="image-frame" data-active-view="after">
+              <!-- After Image (Underneath) -->
+              <img
+                src={project.images[0].after}
+                alt="After Renovation Detail"
+                class="image-after"
+                data-image-after
+                draggable="false"
+              />
+              
+              <!-- Before Image (Overlayed, controlled via opacity) -->
+              {project.images[0].before ? (
+                <img
+                  src={project.images[0].before}
+                  alt="Before Renovation"
+                  class="image-before"
+                  data-image-before
+                  draggable="false"
+                />
+              ) : (
+                <img
+                  src=""
+                  alt="Before Renovation"
+                  class="image-before"
+                  data-image-before
+                  draggable="false"
+                  style="display: none;"
+                />
+              )}
+
+              <!-- Floating Status Badges -->
+              <div class="badge badge-before" data-i18n="beforeAfter.beforeBadge">Before</div>
+              <div class="badge badge-after" data-i18n="beforeAfter.afterBadge">After</div>
+
+              <!-- View Switch Overlay Pill -->
+              <div class="view-toggle-pill">
+                <button 
+                  class={`toggle-switch-btn ${!project.images[0].before ? 'disabled' : ''}`} 
+                  data-toggle="before" 
+                  data-i18n="beforeAfter.beforeBadge"
+                  disabled={!project.images[0].before}
+                >
+                  Before
+                </button>
+                <button class="toggle-switch-btn active" data-toggle="after" data-i18n="beforeAfter.afterBadge">After</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Project Details & Gallery -->
+          <div class="details-container">
+            <div class="project-header">
+              <span class="category-tag" data-i18n={`beforeAfter.projects.${project.id}.category`}>
+                {project.id}
+              </span>
+              <h4 class="showcase-title" data-i18n={`beforeAfter.projects.${project.id}.title`}>
+                Transformation
+              </h4>
+              <p class="showcase-description" data-i18n={`beforeAfter.projects.${project.id}.description`}>
+                Details of the work completed.
+              </p>
+            </div>
+
+            <!-- Thumbnail Gallery of After Photos -->
+            <div class="gallery-section">
+              <h5 class="gallery-heading">
+                <span data-i18n="beforeAfter.afterBadge">After</span> Gallery
+              </h5>
+              <div class="thumbnails-grid">
+                {project.images.map((imgItem, imgIdx) => (
+                  <button 
+                    class={`thumb-btn ${imgIdx === 0 ? 'active' : ''}`}
+                    data-img-after={imgItem.after}
+                    data-img-before={imgItem.before || ''}
+                    aria-label={`Ver foto ${imgIdx + 1} del después`}
+                  >
+                    <img src={imgItem.after} alt={`Detalle ${imgIdx + 1}`} loading="lazy" />
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
   </div>
 </section>
 
@@ -137,15 +214,16 @@
 
   .before-after-intro {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 3.5rem;
     color: #64748b;
     font-size: 1.15rem;
-    max-width: 700px;
+    max-width: 750px;
     margin-left: auto;
     margin-right: auto;
+    line-height: 1.6;
   }
 
-  /* Fade transitions for elements matching rest of the landing page */
+  /* Fade transitions matching rest of the landing page */
   [data-scroll-fade] {
     opacity: 0;
     transform: translateY(30px);
@@ -159,12 +237,12 @@
     transform: translateY(0);
   }
 
-  /* Project Tabs */
+  /* Project Selector Tabs */
   .tabs-container {
     display: flex;
     justify-content: center;
     gap: 1rem;
-    margin-bottom: 3rem;
+    margin-bottom: 3.5rem;
     flex-wrap: wrap;
   }
 
@@ -192,226 +270,285 @@
     box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
   }
 
-  /* Slider frame and wrapper */
-  .slider-wrapper {
-    max-width: 900px;
+  /* Showcases Wrapper */
+  .showcases-wrapper {
+    max-width: 1200px;
     margin: 0 auto;
-    position: relative;
-    display: flex;
-    align-items: center;
   }
 
-  .before-after-slider {
+  /* Project Showcase Grid Layout */
+  .project-showcase {
+    display: none;
+    grid-template-columns: 1.4fr 0.6fr;
+    gap: 3.5rem;
+    align-items: center;
+    background: #f8fafc;
+    padding: 2.5rem;
+    border-radius: 32px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.05);
+  }
+
+  .project-showcase.active {
+    display: grid;
+    animation: scaleFadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  @keyframes scaleFadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.98) translateY(15px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  /* Left: Image Viewer Frame */
+  .viewer-container {
+    width: 100%;
+  }
+
+  .image-frame {
     position: relative;
     width: 100%;
     aspect-ratio: 16/10;
     overflow: hidden;
     border-radius: 24px;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-    background-color: #f1f5f9;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    flex-grow: 1;
+    background-color: #0f172a;
   }
 
-  /* Smooth scaling/opacity transition when swapping projects */
-  .before-after-slider.transitioning {
-    opacity: 0;
-    transform: scale(0.98);
-  }
-
-  .image-after {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    user-select: none;
-    -webkit-user-drag: none;
-  }
-
+  .image-after,
   .image-before {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
     position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
     display: block;
     user-select: none;
     -webkit-user-drag: none;
-    clip-path: polygon(0 0, var(--position) 0, var(--position) 100%, 0 100%);
+    transition: opacity 0.45s ease-in-out;
   }
 
-  /* Floating language-aware Badges */
+  .image-after {
+    z-index: 1;
+  }
+
+  /* Overlay Before Image with smooth opacity swap */
+  .image-before {
+    z-index: 2;
+    opacity: 0; /* Default shows After (underneath) */
+  }
+
+  .image-frame[data-active-view="before"] .image-before {
+    opacity: 1;
+  }
+
+  /* Floating Badges */
   .badge {
     position: absolute;
     top: 1.5rem;
     padding: 0.4rem 1rem;
-    border-radius: 6px;
-    color: #1e293b;
-    background-color: rgba(255, 255, 255, 0.75);
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 8px;
+    color: #0f172a;
+    background-color: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.5);
     font-size: 0.75rem;
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     pointer-events: none;
     z-index: 5;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    backdrop-filter: blur(10px);
-    transition: opacity 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
   }
 
   .badge-before {
     left: 1.5rem;
+    opacity: 0.4;
   }
 
   .badge-after {
     right: 1.5rem;
+    opacity: 1;
   }
 
-  /* Fade out badges if slider handle overlaps them */
-  .slider-wrapper.dragging-before .badge-before {
-    opacity: 0;
+  .image-frame[data-active-view="before"] .badge-before {
+    opacity: 1;
+    background-color: #ffffff;
   }
 
-  .slider-wrapper.dragging-after .badge-after {
-    opacity: 0;
+  .image-frame[data-active-view="before"] .badge-after {
+    opacity: 0.4;
   }
 
-  /* Slider separator line */
-  .slider-line {
+  /* Sliding View Toggle Pill Control */
+  .view-toggle-pill {
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: var(--position);
-    width: 4px;
-    background: #ffffff;
+    bottom: 1.5rem;
+    left: 50%;
     transform: translateX(-50%);
-    pointer-events: none;
-    z-index: 8;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-  }
-
-  /* Slider circular handle */
-  .slider-button {
-    position: absolute;
-    top: 50%;
-    left: var(--position);
-    transform: translate(-50%, -50%);
-    width: 40px;
-    height: 40px;
-    background: #ffffff;
-    border-radius: 50%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    pointer-events: none;
-    z-index: 9;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
-    border: 2px solid #e2e8f0;
-    transition:
-      transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-      background-color 0.2s,
-      border-color 0.2s;
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 4px;
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    border: 1px solid rgba(255, 255, 255, 0.15);
   }
 
-  .before-after-slider:hover .slider-button {
-    transform: translate(-50%, -50%) scale(1.08);
-    background-color: #1e3a8a;
-    border-color: #2563eb;
-  }
-
-  .slider-button svg {
-    width: 18px;
-    height: 18px;
-    stroke: #1e3a8a;
-    transition: stroke 0.2s ease;
-  }
-
-  .before-after-slider:hover .slider-button svg {
-    stroke: #ffffff;
-  }
-
-  /* Navigation Buttons */
-  .nav-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 48px;
-    height: 48px;
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(226, 232, 240, 0.8);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    z-index: 15;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    color: #1e3a8a;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    backdrop-filter: blur(8px);
-  }
-
-  .nav-btn:hover {
-    background: #1e3a8a;
-    color: #ffffff;
-    border-color: #2563eb;
-    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
-    transform: translateY(-50%) scale(1.08);
-  }
-
-  .prev-btn {
-    left: -24px;
-  }
-
-  .next-btn {
-    right: -24px;
-  }
-
-  .nav-btn svg {
-    width: 20px;
-    height: 20px;
-  }
-
-  /* Dots container */
-  .dots-container {
-    display: flex;
-    justify-content: center;
-    gap: 0.6rem;
-    margin-top: 2rem;
-  }
-
-  .dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: #cbd5e1;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  .toggle-switch-btn {
+    background: transparent;
     border: none;
+    color: rgba(255, 255, 255, 0.65);
+    padding: 0.6rem 1.4rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+  }
+
+  .toggle-switch-btn:hover {
+    color: #ffffff;
+  }
+
+  .toggle-switch-btn.active {
+    background: #ffffff;
+    color: #0f172a;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Disabled state for toggles when no before image is available */
+  .toggle-switch-btn.disabled,
+  .toggle-switch-btn[disabled] {
+    opacity: 0.25;
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+
+  /* Right: Details Container */
+  .details-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .category-tag {
+    display: inline-block;
+    align-self: flex-start;
+    background: rgba(37, 99, 235, 0.1);
+    color: #2563eb;
+    padding: 0.3rem 1rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+  }
+
+  .showcase-title {
+    font-size: clamp(1.5rem, 2.5vw, 2.1rem);
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.25;
+    margin-bottom: 1rem;
+  }
+
+  .showcase-description {
+    color: #475569;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  /* Thumbnail Gallery Section */
+  .gallery-section {
+    border-top: 1px solid #e2e8f0;
+    padding-top: 1.5rem;
+  }
+
+  .gallery-heading {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #64748b;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+
+  .gallery-heading span {
+    color: #2563eb;
+  }
+
+  .thumbnails-grid {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .thumb-btn {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid transparent;
+    cursor: pointer;
     padding: 0;
+    background: #e2e8f0;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .dot.active {
-    background-color: #1e3a8a;
-    transform: scale(1.2);
-    width: 24px;
-    border-radius: 5px;
+  .thumb-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 
-  /* Overlay transparent input to handle dragging smoothly */
-  .slider-input {
-    position: absolute;
-    top: 0;
-    left: 0;
+  .thumb-btn.active {
+    border-color: #2563eb;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 16px rgba(37, 99, 235, 0.25);
+  }
+
+  .thumb-btn img {
     width: 100%;
     height: 100%;
-    opacity: 0;
-    cursor: ew-resize;
-    z-index: 10;
-    -webkit-appearance: none;
-    appearance: none;
+    object-fit: cover;
+    display: block;
+    transition: filter 0.2s ease;
+  }
+
+  .thumb-btn:not(.active) img {
+    filter: brightness(0.85);
+  }
+
+  .thumb-btn:hover img {
+    filter: brightness(1);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 968px) {
+    .project-showcase {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      padding: 2rem;
+      border-radius: 24px;
+    }
+
+    .details-container {
+      align-items: stretch;
+    }
   }
 
   @media (max-width: 768px) {
@@ -421,22 +558,25 @@
 
     .tabs-container {
       gap: 0.5rem;
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
     }
 
     .tab-btn {
-      padding: 0.6rem 1.2rem;
+      padding: 0.6rem 1.4rem;
       font-size: 0.9rem;
     }
 
-    .slider-button {
-      width: 32px;
-      height: 32px;
+    .image-frame {
+      aspect-ratio: 4/3; /* Taller on mobile devices for better viewing */
     }
 
-    .slider-button svg {
-      width: 14px;
-      height: 14px;
+    .view-toggle-pill {
+      bottom: 1rem;
+    }
+
+    .toggle-switch-btn {
+      padding: 0.5rem 1.1rem;
+      font-size: 0.8rem;
     }
 
     .badge {
@@ -453,199 +593,141 @@
       right: 1rem;
     }
 
-    .prev-btn {
-      left: 10px;
-      width: 36px;
-      height: 36px;
-    }
-
-    .next-btn {
-      right: 10px;
-      width: 36px;
-      height: 36px;
-    }
-
-    .nav-btn svg {
-      width: 16px;
-      height: 16px;
+    .thumb-btn {
+      width: 60px;
+      height: 60px;
+      border-radius: 10px;
     }
   }
 </style>
 
 <script>
-  function initBeforeAfterSlider() {
-    const slider = document.getElementById("ba-slider");
-    const rangeInput = document.getElementById("ba-range") as HTMLInputElement | null;
-    const imgAfter = document.getElementById("img-after") as HTMLImageElement | null;
-    const imgBefore = document.getElementById("img-before") as HTMLImageElement | null;
-    const sliderWrapper = document.querySelector(".slider-wrapper");
-    const dotsContainer = document.getElementById("dots-container");
-    const prevBtn = document.getElementById("prev-btn");
-    const nextBtn = document.getElementById("next-btn");
+  function initBeforeAfterGallery() {
+    const tabs = document.querySelectorAll(".tabs-container .tab-btn");
+    const showcases = document.querySelectorAll(".project-showcase");
 
+    if (tabs.length === 0 || showcases.length === 0) return;
 
-    // Array of project pairs mapping (1 to 4)
-    const projectPairs = [
-      { before: "/antes/1.jpg", after: "/despues/1.jpg" },
-      { before: "/antes/2.jpg", after: "/despues/2.jpg" },
-      { before: "/antes/3.jpg", after: "/despues/3.jpg" },
-      { before: "/antes/4.jpg", after: "/despues/4.jpg" },
-    ];
+    // 1. Tab Switching Event Listeners
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const targetId = tab.getAttribute("data-target");
+        if (!targetId) return;
 
-    let currentIndex = 0;
-    let autoplayInterval: number | null = null;
-    let isInteracting = false;
+        // Update tab buttons state
+        tabs.forEach((t) => t.classList.remove("active"));
+        tab.classList.add("active");
 
-    // Slider inputs drag and slide event
-    if (rangeInput && slider) {
-      rangeInput.addEventListener("input", (e) => {
-        const value = (e.target as HTMLInputElement).value;
-        slider.style.setProperty("--position", `${value}%`);
-
-        const val = parseInt(value);
-        if (val < 18) {
-          sliderWrapper?.classList.add("dragging-before");
-        } else if (val > 82) {
-          sliderWrapper?.classList.add("dragging-after");
-        } else {
-          sliderWrapper?.classList.remove("dragging-before", "dragging-after");
-        }
-
-        // Reset autoplay timer when interacting
-        resetAutoplay();
-      });
-    }
-
-    // Dynamic Dot Generation
-    function renderDots() {
-      if (!dotsContainer) return;
-      dotsContainer.innerHTML = "";
-      
-      projectPairs.forEach((_, index) => {
-        const dot = document.createElement("button");
-        dot.classList.add("dot");
-        if (index === currentIndex) {
-          dot.classList.add("active");
-        }
-        dot.setAttribute("aria-label", `Ir al proyecto ${index + 1}`);
-        dot.addEventListener("click", () => {
-          goToSlide(index);
-          resetAutoplay();
+        // Update active showcase block
+        showcases.forEach((sc) => {
+          const scId = sc.getAttribute("data-project");
+          if (scId === targetId) {
+            sc.classList.add("active");
+          } else {
+            sc.classList.remove("active");
+          }
         });
-        dotsContainer.appendChild(dot);
       });
-    }
+    });
 
-    // Navigate to slide
-    function goToSlide(index: number) {
-      if (index < 0 || index >= projectPairs.length) return;
-      currentIndex = index;
+    // 2. Interactive Viewer Actions within each Showcase Block
+    showcases.forEach((showcase) => {
+      const frame = showcase.querySelector(".image-frame");
+      const imgAfter = showcase.querySelector("[data-image-after]") as HTMLImageElement | null;
+      const imgBefore = showcase.querySelector("[data-image-before]") as HTMLImageElement | null;
+      const toggleBtns = showcase.querySelectorAll(".toggle-switch-btn");
+      const thumbBtns = showcase.querySelectorAll(".thumb-btn");
 
-      // Update dot active state
-      const dots = dotsContainer?.querySelectorAll(".dot");
-      dots?.forEach((dot, idx) => {
-        if (idx === currentIndex) {
-          dot.classList.add("active");
-        } else {
-          dot.classList.remove("active");
-        }
-      });
+      if (!frame || !imgAfter || !imgBefore) return;
 
-
-
-      if (slider && imgAfter && imgBefore && rangeInput) {
-        slider.classList.add("transitioning");
-
-        setTimeout(() => {
-          imgAfter.src = projectPairs[currentIndex].after;
-          imgBefore.src = projectPairs[currentIndex].before;
-
-          rangeInput.value = "50";
-          slider.style.setProperty("--position", "50%");
-          sliderWrapper?.classList.remove("dragging-before", "dragging-after");
-
-          slider.classList.remove("transitioning");
-        }, 250);
+      // Local state updater function
+      function setViewMode(mode: "before" | "after") {
+        frame?.setAttribute("data-active-view", mode);
+        
+        toggleBtns.forEach((btn) => {
+          const btnMode = btn.getAttribute("data-toggle");
+          if (btnMode === mode) {
+            btn.classList.add("active");
+          } else {
+            btn.classList.remove("active");
+          }
+        });
       }
-    }
 
+      // View Toggle Buttons (Antes / Después)
+      toggleBtns.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const targetView = btn.getAttribute("data-toggle") as "before" | "after";
+          setViewMode(targetView);
+        });
+      });
 
+      // Quick-click comparative action (clicking directly on the image frame toggles state)
+      frame.addEventListener("click", () => {
+        // Only toggle if the target before image actually exists and toggle is not disabled
+        const currentView = frame.getAttribute("data-active-view");
+        const nextView = currentView === "before" ? "after" : "before";
+        
+        const beforeToggle = showcase.querySelector('[data-toggle="before"]');
+        if (nextView === "before" && beforeToggle?.classList.contains("disabled")) {
+          return; // Skip toggling to "Before" if there is no before image
+        }
+        
+        setViewMode(nextView);
+      });
 
-    // Prev / Next button listeners
-    prevBtn?.addEventListener("click", () => {
-      let prevIdx = currentIndex - 1;
-      if (prevIdx < 0) prevIdx = projectPairs.length - 1;
-      goToSlide(prevIdx);
-      resetAutoplay();
+      // Thumbnail Click Events (explore different after-details)
+      thumbBtns.forEach((thumb) => {
+        thumb.addEventListener("click", () => {
+          const newAfterUrl = thumb.getAttribute("data-img-after");
+          const newBeforeUrl = thumb.getAttribute("data-img-before");
+          if (!newAfterUrl || !imgAfter) return;
+
+          // Update active thumbnail
+          thumbBtns.forEach((tb) => tb.classList.remove("active"));
+          thumb.classList.add("active");
+
+          // Update underlay after image src
+          imgAfter.src = newAfterUrl;
+
+          // Update overlay before image src (dynamically swap the comparative baseline!)
+          if (imgBefore) {
+            if (newBeforeUrl) {
+              imgBefore.src = newBeforeUrl;
+              imgBefore.style.display = "block";
+              
+              // Enable before toggle buttons
+              toggleBtns.forEach((btn) => {
+                if (btn.getAttribute("data-toggle") === "before") {
+                  btn.removeAttribute("disabled");
+                  btn.classList.remove("disabled");
+                }
+              });
+            } else {
+              // If no before image exists for this particular thumbnail
+              imgBefore.style.display = "none";
+              
+              // Disable before toggle buttons
+              toggleBtns.forEach((btn) => {
+                if (btn.getAttribute("data-toggle") === "before") {
+                  btn.setAttribute("disabled", "true");
+                  btn.classList.add("disabled");
+                }
+              });
+            }
+          }
+
+          // Automatically reveal "After" mode when selecting a new detail
+          setViewMode("after");
+        });
+      });
     });
-
-    nextBtn?.addEventListener("click", () => {
-      nextSlide();
-      resetAutoplay();
-    });
-
-    function nextSlide() {
-      let nextIdx = currentIndex + 1;
-      if (nextIdx >= projectPairs.length) nextIdx = 0;
-      goToSlide(nextIdx);
-    }
-
-    // Fallbacks if user hasn't renamed files yet, so they see our beautiful AI samples
-    if (imgBefore) {
-      imgBefore.addEventListener("error", () => {
-        if (imgBefore.src.includes("/antes/")) {
-          imgBefore.src = "/gallery_kitchen_before.png";
-        }
-      });
-    }
-    if (imgAfter) {
-      imgAfter.addEventListener("error", () => {
-        if (imgAfter.src.includes("/despues/")) {
-          imgAfter.src = "/gallery_kitchen_after.png";
-        }
-      });
-    }
-
-    // Autoplay implementation (10 seconds)
-    function startAutoplay() {
-      if (autoplayInterval) clearInterval(autoplayInterval);
-      autoplayInterval = window.setInterval(() => {
-        if (!isInteracting) {
-          nextSlide();
-        }
-      }, 10000);
-    }
-
-    function resetAutoplay() {
-      startAutoplay();
-    }
-
-    // Pause autoplay on mouse hover / mobile touch
-    if (sliderWrapper) {
-      sliderWrapper.addEventListener("mouseenter", () => {
-        isInteracting = true;
-      });
-      sliderWrapper.addEventListener("mouseleave", () => {
-        isInteracting = false;
-        resetAutoplay();
-      });
-      sliderWrapper.addEventListener("touchstart", () => {
-        isInteracting = true;
-      }, { passive: true });
-      sliderWrapper.addEventListener("touchend", () => {
-        isInteracting = false;
-        resetAutoplay();
-      }, { passive: true });
-    }
-
-    // Run dot generation and autoplay initially
-    renderDots();
-    startAutoplay();
   }
 
-  // Run on load
-  document.addEventListener("DOMContentLoaded", initBeforeAfterSlider);
+  // Handle both dynamic page load situations
+  document.addEventListener("DOMContentLoaded", initBeforeAfterGallery);
   if (document.readyState === "interactive" || document.readyState === "complete") {
-    initBeforeAfterSlider();
+    initBeforeAfterGallery();
   }
 </script>
